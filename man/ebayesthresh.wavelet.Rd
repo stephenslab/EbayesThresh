@@ -82,6 +82,6 @@ Empirical Bayes selection of wavelet thresholds.
 \emph{Annals of Statistics}, \bold{33}, to appear.
 
 See also the other references given for \code{\link{ebayesthresh}} and at \url{http://www.bernardsilverman.com}}
-\author{Bernard Silverman}}
+\author{Bernard Silverman}
 \seealso{\code{\link{ebayesthresh}}}
 \keyword{nonparametric}% at least one, from doc/KEYWORDS

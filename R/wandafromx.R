@@ -20,5 +20,5 @@ function(x)
 	uu <- uu$parameters}
 	a <- uu[2]
 	w <- wfromt(uu[1], a = a)
-	return(w, a)
+	return(list(w=w, a=a))
 }

@@ -20,7 +20,7 @@ wfromt(tt, prior = "laplace", a = 0.5)
 \references{See \code{\link{ebayesthresh}} and \url{http://www.bernardsilverman.com}}
 \author{Bernard Silverman}
 \seealso{ \code{\link{tfromw}}}
-}
+
 \examples{
 wfromt( c(2,3,5), prior="cauchy" )
 }
