@@ -56,5 +56,4 @@ A list with the following elements
 the thresholds can be found using the program \code{\link{tfromw}}, and
 these can be used to process the original data using the routine \code{\link{threshld}}.}
 \seealso{\code{\link{tfromw}}, \code{\link{threshld}}, \code{\link{wmonfromx}}, \code{\link{wfromx}}}
-\examples{}
 \keyword{nonparametric}% at least one, from doc/KEYWORDS

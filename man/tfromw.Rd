@@ -1,5 +1,7 @@
 \name{tfromw}
 \alias{tfromw}
+\alias{laplace.threshzero}
+\alias{cauchy.threshzero}
 \title{Find threshold from mixing weight}
 \description{
 Given a weight or vector of weights (i.e. prior probabilities that the parameter is nonzero), 
@@ -22,11 +24,13 @@ exactly half if the data value is equal to the threshold.
 If \code{bayesfac} is set to \eqn{\code{FALSE}}{FALSE} (the default) 
 then the threshold is that of the posterior median function given the data value.
 
-The routine carries out a binary search over an appropriate function, using the routine 
+The routine carries out a binary search over each
+component of an appropriate vector function, using the routine 
 \code{\link{vecbinsolv}}.  
-The function to be zeroed is \code{\link{beta.laplace}} or \code{\link{beta.cauchy}} 
-if the Bayes factor threshold is to be found, and \code{\link{laplace.threshzero}} or 
-\code{\link{cauchy.threshzero}} for the posterior median threshold.
+For the posterior median threshold, the function to be zeroed is
+\code{laplace.threshzero} or \code{cauchy.threshzero}.
+For the Bayes factor threshold, the corresponding functions
+are \code{\link{beta.laplace}} or \code{\link{beta.cauchy}}. 
 }
 
 \value{

@@ -30,6 +30,4 @@ The vector giving the best fitting monotone sequence is returned.
 \references{See \code{\link{ebayesthresh}} and \url{http://www.bernardsilverman.com}}
 \author{Bernard Silverman}
 \seealso{\code{\link{wmonfromx}}}
-\examples{
-}
 \keyword{internal}

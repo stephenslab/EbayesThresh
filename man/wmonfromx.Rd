@@ -39,5 +39,4 @@ The vector of estimated weights is returned
 \references{See \code{\link{ebayesthresh}} and \url{http://www.bernardsilverman.com}}
 \author{Bernard Silverman}
 \seealso{ \code{\link{wfromx}}, \code{\link{isotone}}}
-\examples{}
 \keyword{nonparametric}% at least one, from doc/KEYWORDS

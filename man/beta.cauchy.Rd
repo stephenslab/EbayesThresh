@@ -4,7 +4,8 @@
 \description{
   Given a value or vector \eqn{x} of values, find the value(s) of the function 
 \eqn{\beta(x)=g(x)/\phi(x) - 1}{beta(x) = g(x)/\phi(x) - 1 },
-where \eqn{g} is the convolution of the quasi-Cauchy with the normal density.  
+where \eqn{g} is the convolution of the quasi-Cauchy with the 
+normal density \eqn{\phi(x)}{\phi(x)}.  
 }
 \usage{
 beta.cauchy(x)

@@ -1,5 +1,7 @@
 \name{postmean}
 \alias{postmean}
+\alias{postmean.laplace}
+\alias{postmean.cauchy}
 \title{Posterior mean estimator}
 \description{
 Given a data value or a vector of data, find the corresponding posterior mean estimate(s) of the underlying signal value(s)
@@ -20,11 +22,16 @@ If \eqn{x} is a scalar, the posterior mean \eqn{E(\theta|x)}{E(theta|x)} where \
 \references{See \code{\link{ebayesthresh}} and \url{http://www.bernardsilverman.com}}
 \author{Bernard Silverman}
 \note{If the quasicauchy prior is used, the argument \code{a} is ignored.
-The routine calls the approprate one of \code{\link{postmean.laplace}} or \code{\link{postmean.cauchy}}.
+If \code{prior="laplace"}, the routine calls \code{postmean.laplace}, which finds the posterior
+mean explicitly, as the product of the posterior probability that the parameter is nonzero and
+the posterior mean conditional on not being zero.   
+If \code{prior="cauchy"}, the routine calls \code{postmean.cauchy}; in that case
+the posterior mean is found by expressing the quasi-Cauchy prior as a mixture:
+The mean conditional on the mixing parameter is found and is then averaged 
+over the posterior distribution of the mixing parameter, 
+including the atom of probability at zero variance.
 }
 \seealso{
-\code{\link{postmean.laplace}},
-\code{\link{postmean.cauchy}},
 \code{\link{postmed}}
 }
 \examples{

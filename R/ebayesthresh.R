@@ -1,5 +1,5 @@
 "ebayesthresh" <-
-function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = 1, verbose = FALSE, 
+function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = FALSE, 
 	threshrule = "median")
 {
 #  Given a vector of data x, find the marginal maximum likelihood estimator

@@ -7,7 +7,7 @@ as discussed in Johnstone and Silverman (2004).
 }
 \usage{
 ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, 
-       sdev = 1, verbose = FALSE, threshrule = "median")
+       sdev = NA, verbose = FALSE, threshrule = "median")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -84,7 +84,8 @@ Needles and straw in haystacks:  Empirical Bayes estimates of
 possibly sparse sequences.   \emph{Annals of Statistics}, \bold{32}, 1594--1649.
 
 Johnstone, I. M. and Silverman, B. W. (2004) 
-EbayesThresh:  R and S-PLUS software for Empirical Bayes thresholding.  Submitted for publication.
+EbayesThresh:  R software for Empirical Bayes thresholding.  
+\emph{Journal of Statistical Software}. To appear.
 
 Johnstone, I. M. (2004)  `Function Estimation and Classical Normal Theory' 
 `The Threshold Selection Problem'.   The Wald Lectures I and II, 2004.  Available from 
@@ -92,7 +93,7 @@ Johnstone, I. M. (2004)  `Function Estimation and Classical Normal Theory'
 
 Johnstone, I. M. and Silverman, B. W. (2005)  
 Empirical Bayes selection of wavelet thresholds.
-\emph{Annals of Statistics}, \bold{33?}, to appear.
+\emph{Annals of Statistics}, \bold{33}, to appear.
 
 
 The papers by Johnstone and Silverman are available from \url{http://www.bernardsilverman.com}.   

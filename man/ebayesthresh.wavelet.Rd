@@ -79,11 +79,9 @@ The wavelet transform (in the same format as that supplied to the routine) of th
 \references{
 Johnstone, I. M. and Silverman, B. W. (2005)  
 Empirical Bayes selection of wavelet thresholds.
-\emph{Annals of Statistics}, \bold{33?}, to appear.
+\emph{Annals of Statistics}, \bold{33}, to appear.
 
 See also the other references given for \code{\link{ebayesthresh}} and at \url{http://www.bernardsilverman.com}}
 \author{Bernard Silverman}}
 \seealso{\code{\link{ebayesthresh}}}
-\examples{
-}
 \keyword{nonparametric}% at least one, from doc/KEYWORDS

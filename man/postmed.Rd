@@ -1,5 +1,8 @@
 \name{postmed}
 \alias{postmed}
+\alias{postmed.laplace}
+\alias{postmed.cauchy}
+\alias{cauchy.medzero}
 \title{Posterior median estimator}
 \description{
   Given a data value or a vector of data, find the corresponding posterior median estimate(s) of the underlying signal value(s)
@@ -24,11 +27,14 @@ all with the given prior.
 \references{See \code{\link{ebayesthresh}} and \url{http://www.bernardsilverman.com}}
 \author{Bernard Silverman}
 \note{If the quasicauchy prior is used, the argument \code{a} is ignored.
-The routine calls the approprate one of \code{\link{postmed.laplace}} or \code{\link{postmed.cauchy}}.
+The routine calls the approprate one of \code{postmed.laplace} or \code{postmed.cauchy}.
+}
+\details{The routine calls the relevant one of the routines \code{postmed.laplace} or \code{postmed.cauchy}.
+In the Laplace case, the posterior median is found explicitly, without any need for the numerical solution of an equation.
+In the quasi-Cauchy case, the posterior median is found by finding the zero,
+component by component, of the vector function \code{cauchy.medzero}.
 }
 \seealso{
-\code{\link{postmed.laplace}},
-\code{\link{postmed.cauchy}},
 \code{\link{postmean}}}
 \examples{
 postmed(c(-2,1,0,-4,8,50), w=0.05, prior="cauchy")
