@@ -1,0 +1,20 @@
+Package: ebayesthresh
+Title: Empirical Bayes thresholding and related methods
+Version: 1.02
+Author: Bernard Silverman (with major intellectual input from Iain
+        Johnstone)
+Description: Carries out Empirical Bayes thresholding using the methods
+	developed by Johnstone and Silverman.  The basic problem is to estimate a mean
+	vector given a vector of observations of the mean vector plus white noise, taking
+	advantage of possible sparsity in the mean vector.  Within a Bayesian formulation, the
+	elements of the mean vector are modelled as having, independently, a distribution that
+	is a mixture of an atom of probability at zero and a suitable hevay-tailed distribution.
+	The mixing parameter can be estimated by a marginal maximum likelihood approach.
+	This leads to an adaptive thresholding approach on the original data.  Extensions of
+	the basic method, in particular to wavelet thresholding, are also implemented
+	within the package.
+Maintainer: Bernard Silverman <bernard.silverman@spc.ox.ac.uk>
+License: GPL version 2 or newer
+Date: 2004-09-04
+URL: http://www.bernardsilverman.com
+Packaged: Sun Sep  5 22:48:58 2004; silverma
