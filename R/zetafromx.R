@@ -87,5 +87,5 @@ function(xd, cs, pilo=NA, prior = "laplace", a = 0.5)
 	zeta <- zlmax[zm == max(zm)]
 	zeta <- min(zeta)
 	w <- pmin(1, pmax(zeta*cs, pilo) ) 
-	return(zeta, w, cs, pilo)
+	return(list(zeta=zeta, w=w, cs=cs, pilo=pilo))
 }
