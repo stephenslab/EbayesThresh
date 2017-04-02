@@ -17,23 +17,31 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   it is estimated using the function mad(x).
 #
 #  find the standard deviation if necessary and estimate the parameters
-	if(is.na(sdev)) sdev <- mad(x, center = 0)
-	x <- x/sdev
+  if(length(sdev)==1){
+  	if(is.na(sdev)) sdev <- mad(x, center = 0)
+  } else{
+    if(length(sdev)!=length(x)) stop("Standard deviation has to be homogeneous or has the length as x.")
+  }
+
+  m_sdev <- mean(sdev)
+  s <- sdev/m_sdev
+  x <- x/m_sdev
+  
 	pr <- substring(prior, 1, 1)
 	if((pr == "l") & is.na(a)) {
-		pp <- wandafromx(x)
+		pp <- wandafromx(x, s)
 		w <- pp$w
 		a <- pp$a
 	}
-	else w <- wfromx(x, prior = prior, a = a)	#
+	else w <- wfromx(x, s, prior = prior, a = a)	#
 	if(pr != "m" | verbose) {
-		tt <- tfromw(w, prior = prior, bayesfac = bayesfac, a = a)
-		tcor <- sdev * tt
+		tt <- tfromw(w, s, prior = prior, bayesfac = bayesfac, a = a)
+		tcor <- m_sdev * tt
 	}
 	if(threshrule == "median")
-		muhat <- postmed(x, w, prior = prior, a = a)
+		muhat <- postmed(x, s, w, prior = prior, a = a)
 	if(threshrule == "mean")
-		muhat <- postmean(x, w, prior = prior, a = a)
+		muhat <- postmean(x, s, w, prior = prior, a = a)
 	if(threshrule == "hard")
 		muhat <- threshld(x, tt)
 	if(threshrule == "soft")
@@ -41,7 +49,7 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 	if(threshrule == "none") muhat <- NA	#
 # Now return desired output
 #
-	muhat <- sdev * muhat
+	muhat <- m_sdev * muhat
 	if(!verbose)
 		return(muhat)
 	retlist <- list(muhat = muhat, x = x, threshold.sdevscale = tt, 

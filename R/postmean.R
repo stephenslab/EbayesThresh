@@ -1,5 +1,5 @@
 "postmean" <-
-function(x, w, prior = "laplace", a = 0.5)
+function(x, s, w, prior = "laplace", a = 0.5)
 {
 #
 # find the posterior mean for the appropriate prior for 
@@ -8,8 +8,8 @@ function(x, w, prior = "laplace", a = 0.5)
 #
 	pr <- substring(prior, 1, 1)
 	if(pr == "l")
-		mutilde <- postmean.laplace(x, w, a = a)
+		mutilde <- postmean.laplace(x, s, w, a = a)
 	if(pr == "c")
-		mutilde <- postmean.cauchy(x, w)
+		mutilde <- postmean.cauchy(x, s, w)
 	return(mutilde)
 }
