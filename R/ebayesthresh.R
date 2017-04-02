@@ -6,6 +6,7 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   of the mixing weight w, and apply an appropriate thresholding rule using
 #   this weight.
 #  If the prior is laplace and a=NA, then the scale factor is also found by MML.
+#  Heterogeneous variance is allowed only for laplace prior.
 #  The thresholding rules allowed are "median", "mean", "hard", "soft" and "none";
 #   if "none" is used, then only the parameters are worked out.
 #  If hard or soft thresholding is used, the argument "bayesfac" specifies
@@ -20,7 +21,7 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
   if(length(sdev)==1){
   	if(is.na(sdev)) sdev <- mad(x, center = 0)
   } else{
-    if(length(sdev)!=length(x)) stop("Standard deviation has to be homogeneous or has the length as x.")
+    if(length(sdev)!=length(x)) stop("Standard deviation has to be homogeneous or has the same length as x.")
   }
 
   m_sdev <- mean(sdev)

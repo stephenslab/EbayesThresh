@@ -10,6 +10,6 @@ function(x, s, w, prior = "laplace", a = 0.5)
 	if(pr == "l")
 		muhat <- postmed.laplace(x, s, w, a = a)
 	if(pr == "c")
-		muhat <- postmed.cauchy(x, s, w)
+		muhat <- postmed.cauchy(x, w)
 	return(muhat)
 }

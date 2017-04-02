@@ -10,6 +10,6 @@ function(x, s, w, prior = "laplace", a = 0.5)
 	if(pr == "l")
 		mutilde <- postmean.laplace(x, s, w, a = a)
 	if(pr == "c")
-		mutilde <- postmean.cauchy(x, s, w)
+		mutilde <- postmean.cauchy(x, w)
 	return(mutilde)
 }
