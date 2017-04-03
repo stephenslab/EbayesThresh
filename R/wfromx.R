@@ -1,5 +1,5 @@
 "wfromx" <-
-function(x, prior = "laplace", a = 0.5)
+function(x, s, prior = "laplace", a = 0.5)
 {
 #  given the vector of data x and the function betaf
 #   which finds beta(x), 
@@ -11,10 +11,11 @@ function(x, prior = "laplace", a = 0.5)
 #  
 #
 	pr <- substring(prior, 1, 1)
-	tuniv <- sqrt(2 * log(length(x)))
-	wlo <- wfromt(tuniv, prior, a)
+	tuniv <- sqrt(2 * log(length(x))) * s
+	wlo <- wfromt(tuniv, s, prior, a)
+	wlo <- max(wlo)
 	if(pr == "l") {
-		beta <- beta.laplace(x, a)
+		beta <- beta.laplace(x, s, a)
 	}
 	if(pr == "c") {
 		beta <- beta.cauchy(x)
