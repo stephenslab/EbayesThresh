@@ -1,5 +1,5 @@
 "tfromw" <-
-function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
+function(w, prior = "laplace", bayesfac = FALSE, a = 0.5)
 {
 #  given the vector of weights w, find the threshold or vector of
 #   thresholds corresponding to these weights, under the specified prior.
@@ -18,9 +18,9 @@ function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
 			tt <- vecbinsolv(z, beta.cauchy, 0, 10)
 	}
 	else {
-		zz <- rep(0, length(s))
+		zz <- rep(0, length(w))
 		if(pr == "l")
-			tt <- vecbinsolv(zz, laplace.threshzero, 0, 10, s = s, w = w, 
+			tt <- vecbinsolv(zz, laplace.threshzero, 0, 10, w = w, 
 				a = a)
 		if(pr == "c")
 			tt <- vecbinsolv(zz, cauchy.threshzero, 0, 10, w = w)

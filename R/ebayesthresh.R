@@ -6,7 +6,6 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   of the mixing weight w, and apply an appropriate thresholding rule using
 #   this weight.
 #  If the prior is laplace and a=NA, then the scale factor is also found by MML.
-#  Heterogeneous variance is allowed only for laplace prior.
 #  The thresholding rules allowed are "median", "mean", "hard", "soft" and "none";
 #   if "none" is used, then only the parameters are worked out.
 #  If hard or soft thresholding is used, the argument "bayesfac" specifies
@@ -18,31 +17,23 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   it is estimated using the function mad(x).
 #
 #  find the standard deviation if necessary and estimate the parameters
-  if(length(sdev)==1){
-  	if(is.na(sdev)) sdev <- mad(x, center = 0)
-  } else{
-    if(length(sdev)!=length(x)) stop("Standard deviation has to be homogeneous or has the same length as x.")
-  }
-
-  m_sdev <- mean(sdev)
-  s <- sdev/m_sdev
-  x <- x/m_sdev
-  
+	if(is.na(sdev)) sdev <- mad(x, center = 0)
+	x <- x/sdev
 	pr <- substring(prior, 1, 1)
 	if((pr == "l") & is.na(a)) {
-		pp <- wandafromx(x, s)
+		pp <- wandafromx(x)
 		w <- pp$w
 		a <- pp$a
 	}
-	else w <- wfromx(x, s, prior = prior, a = a)	#
+	else w <- wfromx(x, prior = prior, a = a)	#
 	if(pr != "m" | verbose) {
-		tt <- tfromw(w, s, prior = prior, bayesfac = bayesfac, a = a)
-		tcor <- m_sdev * tt
+		tt <- tfromw(w, prior = prior, bayesfac = bayesfac, a = a)
+		tcor <- sdev * tt
 	}
 	if(threshrule == "median")
-		muhat <- postmed(x, s, w, prior = prior, a = a)
+		muhat <- postmed(x, w, prior = prior, a = a)
 	if(threshrule == "mean")
-		muhat <- postmean(x, s, w, prior = prior, a = a)
+		muhat <- postmean(x, w, prior = prior, a = a)
 	if(threshrule == "hard")
 		muhat <- threshld(x, tt)
 	if(threshrule == "soft")
@@ -50,7 +41,7 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 	if(threshrule == "none") muhat <- NA	#
 # Now return desired output
 #
-	muhat <- m_sdev * muhat
+	muhat <- sdev * muhat
 	if(!verbose)
 		return(muhat)
 	retlist <- list(muhat = muhat, x = x, threshold.sdevscale = tt, 
