@@ -7,8 +7,6 @@ function(x, s, w, a = 0.5)
 #  only allow a < 20 for input value.
 	a <- min(a, 20)
   xma <- x/s - s*a
-  xma[abs(xma) > 35] <- sign(xma[abs(xma) > 35]) * 35
-  
-	z <- pnorm(xma) - (dnorm(xma) * (1/w + beta.laplace(x, s, a)))/a
+	z <- pnorm(xma) - (dnorm(xma) * (1/w + beta.laplace(x, s, a)))/a/s
 	return(z)
 }

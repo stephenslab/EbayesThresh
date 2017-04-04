@@ -9,7 +9,7 @@ function(x, s, w, a = 0.5)
 	a <- min(a, 20)
 #  First find the odds of zero and the shrinkage factor
 #
-	wpost <- 1 - (1 - w)/(1 + w * beta.laplace(x, s, a))	
+	wpost <- wpost.laplace(w, x, s, a)
 	#  now find the posterior mean conditional on being non-zero
 #
 	sx <- sign(x)

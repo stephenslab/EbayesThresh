@@ -13,8 +13,8 @@ function(x, s, w, a = 0.5)
 	sx <- sign(x)
 	x <- abs(x)
 	xma <- x/s - s*a
-	zz <- (dnorm(xma) * (1/w + beta.laplace(x, s, a)))/a
-	zz[xma > 25] <- 0.5
+	zz <- (dnorm(xma) * (1/w + beta.laplace(x, s, a)))/a /s
+	zz[xma > 25] <- 1/2
 	mucor <- qnorm(pmin(zz, 1))
 	muhat <- sx * pmax(0, xma - mucor) * s
 	return(muhat)

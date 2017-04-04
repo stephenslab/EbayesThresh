@@ -12,18 +12,25 @@ function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
 	pr <- substring(prior, 1, 1)
 	if(bayesfac) {
 		z <- 1/w - 2
+		zz <- rep(z, length(s))
 		if(pr == "l")
-			tt <- vecbinsolv(z, beta.laplace, 0, 10, a = a)
+			tt <- vecbinsolv(zz, beta.laplace, 0, 10, s = s, a = a)
 		if(pr == "c")
 			tt <- vecbinsolv(z, beta.cauchy, 0, 10)
 	}
 	else {
+	  z <- 0
 		zz <- rep(0, length(s))
-		if(pr == "l")
-			tt <- vecbinsolv(zz, laplace.threshzero, 0, 10, s = s, w = w, 
+		if(pr == "l"){
+		  # When x/s-s*a>25, laplace.threshzero is close to 1/2. 
+		  # This can be treated as the upper bound for search.
+		  # see postmed.laplace
+			tt <- vecbinsolv(zz, laplace.threshzero, 0, s*(25+s*a), s = s, w = w, 
 				a = a)
+			
+		}
 		if(pr == "c")
-			tt <- vecbinsolv(zz, cauchy.threshzero, 0, 10, w = w)
+			tt <- vecbinsolv(z, cauchy.threshzero, 0, 10, w = w)
 	}
 	return(tt)
 }
