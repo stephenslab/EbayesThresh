@@ -11,7 +11,7 @@ function(x, s)
 	tlo <- rep(0, length(s))
 	lo  <-  c(0,0.04)
 	hi  <-  c(1,3)
-	startpar  <-  c(1,0.5)
+	startpar  <-  c(0.5,0.5)
 	if (exists("optim")) {
    		uu <- optim(startpar, negloglik.laplace, method="L-BFGS-B",
   			lower = lo, upper = hi, xx = x, ss = s, thi = thi, tlo = tlo)

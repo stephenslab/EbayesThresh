@@ -16,8 +16,8 @@ function(x, s, w, a = 0.5)
 	x <- abs(x)
 	xpa <- x/s + s*a
 	xma <- x/s - s*a
-	xpa[abs(xpa) > 35] <- sign(xpa[abs(xpa) > 35]) * 35
-	xma[abs(xma) > 35] <- sign(xma[abs(xma) > 35]) * 35
+	xpa[xpa > 35] <- 35
+	xma[xma < -35] <- -35
 	
 	cp1 <- pnorm(xma)
 	cp2 <- pnorm( - xpa)

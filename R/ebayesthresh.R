@@ -19,7 +19,8 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #
 #  find the standard deviation if necessary and estimate the parameters
   if(length(sdev)==1){
-  	if(is.na(sdev)) sdev <- mad(x, center = 0)
+  	if(is.na(sdev)) { sdev <- rep(mad(x, center = 0), length(x))
+  	} else { sdev <- rep(sdev, length(x))}
   } else{
     if(length(sdev)!=length(x)) stop("Standard deviation has to be homogeneous or has the same length as observations.")
   }
@@ -48,8 +49,8 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 	if(threshrule == "soft")
 		muhat <- threshld(x, tt, hard = FALSE)
 	if(threshrule == "none") muhat <- NA	#
-# Now return desired output
-#
+
+	# Now return desired output
 	muhat <- m_sdev * muhat
 	if(!verbose)
 		return(muhat)

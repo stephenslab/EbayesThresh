@@ -7,7 +7,6 @@ function(tt, s, prior = "laplace", a = 0.5)
 	if(pr == "l"){
 	  tma <- tt/s - s*a
 	  wi <- 1/abs(tma)
-	  tma[tma > 35] <- 35
 	  wi[tma > -35] <- pnorm(tma[tma > -35])/dnorm(tma[tma > -35])
 		wi <- a * s * wi - beta.laplace(tt, s, a)
 	}

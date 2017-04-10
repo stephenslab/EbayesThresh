@@ -24,10 +24,8 @@ function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
 		if(pr == "l"){
 		  # When x/s-s*a>25, laplace.threshzero is close to 1/2. 
 		  # This can be treated as the upper bound for search.
-		  # see postmed.laplace
 			tt <- vecbinsolv(zz, laplace.threshzero, 0, s*(25+s*a), s = s, w = w, 
 				a = a)
-			
 		}
 		if(pr == "c")
 			tt <- vecbinsolv(z, cauchy.threshzero, 0, 10, w = w)
