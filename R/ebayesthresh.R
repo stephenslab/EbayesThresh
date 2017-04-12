@@ -37,13 +37,13 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 	}
 	else w <- wfromx(x, s, prior = prior, a = a)
 	if(pr != "m" | verbose) {
-		tt <- tfromw(w, s, prior = prior, bayesfac = bayesfac, a = a)
-		tcor <- m_sdev * tt
+		tt <- tfromw(w, prior = prior, bayesfac = bayesfac, a = a)
+		tcor <- sdev * tt
 	}
 	if(threshrule == "median")
-		muhat <- postmed(x, s, w, prior = prior, a = a)
+		muhat <- postmed(x, w, prior = prior, a = a)
 	if(threshrule == "mean")
-		muhat <- postmean(x, s, w, prior = prior, a = a)
+		muhat <- postmean(x, w, prior = prior, a = a)
 	if(threshrule == "hard")
 		muhat <- threshld(x, tt)
 	if(threshrule == "soft")

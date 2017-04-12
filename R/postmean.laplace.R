@@ -1,12 +1,13 @@
 "postmean.laplace" <-
-function(x, s, w, a = 0.5)
+function(x, w, a = 0.5)
 {
 #
 # find the posterior mean for the double exponential prior for 
-#   given x, s, w and a.
+#   given x, w and a, assuming the error variance
+#   is 1.
 #
-#  only allow a < 20 for input value.
-	a <- min(a, 20)
+#  only allow a < 20. 
+	a <- min(a, 20)	#
 #  First find the odds of zero and the shrinkage factor
 #
 	wpost <- wpost.laplace(w, x, s, a)
@@ -22,8 +23,8 @@ function(x, s, w, a = 0.5)
 	cp1 <- pnorm(xma)
 	cp2 <- pnorm( - xpa)
 	ef <- exp(pmin(2 * a * x, 100))
-	postmeancond <- x - a * s^2 * ( 2 * cp1/(cp1 + ef * cp2) - 1)	
-#
+	postmeancond <- ((x - a) * cp1 + dp1 + ef * ((x + a) * cp2 - dp2))/(cp1 +
+		ef * cp2)	#
 #  calculate posterior mean and return
 #
 	mutilde <- sx * wpost * postmeancond
