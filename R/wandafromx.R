@@ -1,5 +1,5 @@
 "wandafromx" <-
-function(x, s)
+function(x, s, threshrestriction)
 {
 #  finds the marginal max lik estimators of w and a, using a bivariate optimization
 #
@@ -7,7 +7,8 @@ function(x, s)
 #
 #  If running R, the routine optim is used; in S-PLUS the routine is nlminb
 #
-	thi <- sqrt(2 * log(length(x))) * s
+	if(threshrestriction) { thi <- sqrt(2 * log(length(x))) * s
+	} else{ thi <- Inf * s }
 	tlo <- rep(0, length(s))
 	lo  <-  c(0,0.04)
 	hi  <-  c(1,3)

@@ -1,6 +1,6 @@
 "ebayesthresh" <-
 function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = FALSE, 
-	threshrule = "median")
+	threshrule = "median", threshrestriction = TRUE)
 {
 #  Given a vector of data x, find the marginal maximum likelihood estimator
 #   of the mixing weight w, and apply an appropriate thresholding rule using
@@ -31,7 +31,7 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
   
 	pr <- substring(prior, 1, 1)
 	if((pr == "l") & is.na(a)) {
-		pp <- wandafromx(x, s)
+	 pp <- wandafromx(x, s, threshrestriction)
 		w <- pp$w
 		a <- pp$a
 	}
