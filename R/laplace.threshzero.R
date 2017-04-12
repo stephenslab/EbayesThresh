@@ -1,5 +1,5 @@
 "laplace.threshzero" <-
-function(x, w, a = 0.5)
+function(x, s, w, a = 0.5)
 {
 #
 # the function that has to be zeroed to find the threshold with the Laplace
