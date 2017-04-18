@@ -11,6 +11,8 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   if "none" is used, then only the parameters are worked out.
 #  If hard or soft thresholding is used, the argument "bayesfac" specifies
 #   whether to use the bayes factor threshold or the posterior median threshold.
+#  If threshrestriction=TRUE, the universal bound of threshold will be implemented;
+#   otherwise, weight w will be searched in [0, 1]
 #  If verbose=TRUE then the routine returns a list with several arguments, including
 #   muhat which is the result of the thresholding.
 #  If verbose=FALSE then only muhat is returned.

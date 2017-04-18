@@ -7,6 +7,6 @@ function(x, s, w, a = 0.5)
 #  only allow a < 20 for input value.
 	a <- min(a, 20)
   xma <- x/s - s*a
-	z <- pnorm(xma) - (dnorm(xma) * (1/w + beta.laplace(x, s, a)))/a/s
+	z <- pnorm(xma) - 1/a * (1/s*dnorm(xma)) * (1/w + beta.laplace(x, s, a))
 	return(z)
 }

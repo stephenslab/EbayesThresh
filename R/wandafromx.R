@@ -8,7 +8,7 @@ function(x, s, threshrestriction)
 #  If running R, the routine optim is used; in S-PLUS the routine is nlminb
 #
 	if(threshrestriction) { thi <- sqrt(2 * log(length(x))) * s
-	} else{ thi <- Inf * s }
+	} else{ thi <- Inf }
 	tlo <- rep(0, length(s))
 	lo  <-  c(0,0.04)
 	hi  <-  c(1,3)
