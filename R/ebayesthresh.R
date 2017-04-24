@@ -1,6 +1,6 @@
 "ebayesthresh" <-
 function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = FALSE, 
-	threshrule = "median", threshrestriction = TRUE)
+	threshrule = "median", threshrestriction = TRUE, normalization = FALSE)
 {
 #  Given a vector of data x, find the marginal maximum likelihood estimator
 #   of the mixing weight w, and apply an appropriate thresholding rule using
@@ -13,6 +13,9 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   whether to use the bayes factor threshold or the posterior median threshold.
 #  If threshrestriction=TRUE, the universal bound of threshold will be implemented;
 #   otherwise, weight w will be searched in [0, 1]
+#  If normalization=TRUE, the observations and standard deviations will be first 
+#   normalized by the mean of all standard deviations. In the case of homogeneous
+#   variance, the standard deviations will be normalized to 1 automatically.
 #  If verbose=TRUE then the routine returns a list with several arguments, including
 #   muhat which is the result of the thresholding.
 #  If verbose=FALSE then only muhat is returned.
@@ -20,18 +23,22 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   it is estimated using the function mad(x).
 #
 #  find the standard deviation if necessary and estimate the parameters
+  pr <- substring(prior, 1, 1)
+  
   if(length(sdev)==1){
   	if(is.na(sdev)) { sdev <- rep(mad(x, center = 0), length(x))
   	} else { sdev <- rep(sdev, length(x))}
   } else{
+    if(pr == "c") stop("Standard deviation has to be homogeneous for Cauchy prior.")
     if(length(sdev)!=length(x)) stop("Standard deviation has to be homogeneous or has the same length as observations.")
   }
-
-  m_sdev <- mean(sdev)
-  s <- sdev/m_sdev
-  x <- x/m_sdev
+  normalization_condition = (length(sdev)==1) | normalization
+  if(normalization_condition){
+    m_sdev <- mean(sdev)
+    s <- sdev/m_sdev
+    x <- x/m_sdev
+  } else { s <- sdev }
   
-	pr <- substring(prior, 1, 1)
 	if((pr == "l") & is.na(a)) {
 	 pp <- wandafromx(x, s, threshrestriction)
 		w <- pp$w
@@ -40,7 +47,9 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 	else w <- wfromx(x, s, prior = prior, a = a)
 	if(pr != "m" | verbose) {
 	  tt <- tfromw(w, s, prior = prior, bayesfac = bayesfac, a = a)
-	  tcor <- m_sdev * tt
+	  if(normalization_condition) {
+	    tcor <- tt * m_sdev
+	  } else { tcor <- tt }
 	}
 	if(threshrule == "median")
 		muhat <- postmed(x, s, w, prior = prior, a = a)
@@ -53,7 +62,9 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 	if(threshrule == "none") muhat <- NA	#
 
 	# Now return desired output
-	muhat <- m_sdev * muhat
+	if(normalization_condition) {
+	  muhat <- muhat * m_sdev
+	}
 	if(!verbose)
 		return(muhat)
 	retlist <- list(muhat = muhat, x = x, threshold.sdevscale = tt, 
