@@ -1,6 +1,6 @@
 "ebayesthresh" <-
 function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = FALSE, 
-	threshrule = "median", threshrestriction = TRUE, normalization = FALSE)
+	threshrule = "median", universalthresh = TRUE, stabadjustment = FALSE)
 {
 #  Given a vector of data x, find the marginal maximum likelihood estimator
 #   of the mixing weight w, and apply an appropriate thresholding rule using
@@ -11,11 +11,12 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #   if "none" is used, then only the parameters are worked out.
 #  If hard or soft thresholding is used, the argument "bayesfac" specifies
 #   whether to use the bayes factor threshold or the posterior median threshold.
-#  If threshrestriction=TRUE, the universal bound of threshold will be implemented;
-#   otherwise, weight w will be searched in [0, 1]
-#  If normalization=TRUE, the observations and standard deviations will be first 
-#   normalized by the mean of all standard deviations. In the case of homogeneous
-#   variance, the standard deviations will be normalized to 1 automatically.
+#  If universalthresh=TRUE, the universal bound of threshold will be implemented;
+#   otherwise, weight w will be searched in [0, 1].
+#  If stabadjustment=TRUE, the observations and standard deviations will be first 
+#   divided by the mean of all standard deviations in case of inefficiency due to 
+#   large value of standard deviation. In the case of homogeneous variance, the 
+#   standard deviations will be normalized to 1 automatically.
 #  If verbose=TRUE then the routine returns a list with several arguments, including
 #   muhat which is the result of the thresholding.
 #  If verbose=FALSE then only muhat is returned.
@@ -32,22 +33,22 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
     if(pr == "c") stop("Standard deviation has to be homogeneous for Cauchy prior.")
     if(length(sdev)!=length(x)) stop("Standard deviation has to be homogeneous or has the same length as observations.")
   }
-  normalization_condition = (length(sdev)==1) | normalization
-  if(normalization_condition){
+  stabadjustment_condition = (length(sdev)==1) | stabadjustment
+  if(stabadjustment_condition){
     m_sdev <- mean(sdev)
     s <- sdev/m_sdev
     x <- x/m_sdev
   } else { s <- sdev }
   
 	if((pr == "l") & is.na(a)) {
-	 pp <- wandafromx(x, s, threshrestriction)
+	 pp <- wandafromx(x, s, universalthresh)
 		w <- pp$w
 		a <- pp$a
 	}
 	else w <- wfromx(x, s, prior = prior, a = a)
 	if(pr != "m" | verbose) {
 	  tt <- tfromw(w, s, prior = prior, bayesfac = bayesfac, a = a)
-	  if(normalization_condition) {
+	  if(stabadjustment_condition) {
 	    tcor <- tt * m_sdev
 	  } else { tcor <- tt }
 	}
@@ -62,7 +63,7 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 	if(threshrule == "none") muhat <- NA	#
 
 	# Now return desired output
-	if(normalization_condition) {
+	if(stabadjustment_condition) {
 	  muhat <- muhat * m_sdev
 	}
 	if(!verbose)

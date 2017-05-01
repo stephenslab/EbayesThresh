@@ -10,7 +10,7 @@ function(xd, prior = "laplace", a = 0.5, tol = 1e-008, maxits = 20)
 #
 	pr <- substring(prior, 1, 1)
 	nx <- length(xd)
-	wmin <- wfromt(sqrt(2 * log(length(xd))), prior, a)
+	wmin <- wfromt(sqrt(2 * log(length(xd))), s=1, prior, a)
 	winit <- 1
 	if(pr == "l")
 		beta <- beta.laplace(xd, a)
