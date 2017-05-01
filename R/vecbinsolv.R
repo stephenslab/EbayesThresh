@@ -18,8 +18,11 @@ function(zf, fun, tlo, thi, nits = 30, ...)
 #   of the  interval between tlo and thi
 #
 	nz <- length(zf)
-	tlo <- rep(tlo, nz)
-	thi <- rep(thi, nz)	#
+	if(length(tlo)==1) tlo <- rep(tlo, nz)
+	if(length(tlo)!=nz) stop("Lower constraint has to be homogeneous or has the same length as #functions.")
+	if(length(thi)==1) thi <- rep(thi, nz)
+	if(length(thi)!=nz) stop("Upper constraint has to be homogeneous or has the same length as #functions.")
+
 #  carry out nits bisections
 #
 	for(jj in (1:nits)) {
