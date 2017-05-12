@@ -2,17 +2,20 @@
 function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = FALSE, 
 	threshrule = "median", universalthresh = TRUE, stabadjustment = FALSE)
 {
+#  
 #  Given a vector of data x, find the marginal maximum likelihood estimator
 #   of the mixing weight w, and apply an appropriate thresholding rule using
 #   this weight.
 #  If the prior is laplace and a=NA, then the scale factor is also found by MML.
-#   Heterogeneous variance is allowed only for laplace prior.
+#  Standard deviation sdev can be a vector (heterogeneous variance) or a single 
+#   value (homogeneous variance).if sdev=NA, then it is estimated using the function 
+#   mad(x). Heterogeneous variance is allowed only for laplace prior currently.
 #  The thresholding rules allowed are "median", "mean", "hard", "soft" and "none";
 #   if "none" is used, then only the parameters are worked out.
 #  If hard or soft thresholding is used, the argument "bayesfac" specifies
 #   whether to use the bayes factor threshold or the posterior median threshold.
-#  If universalthresh=TRUE, the universal bound of threshold will be implemented;
-#   otherwise, weight w will be searched in [0, 1].
+#  If universalthresh=TRUE, the thresholds will be upper bounded by universal threshold
+#   adjusted by standard deviation; otherwise, weight w will be searched in [0, 1].
 #  If stabadjustment=TRUE, the observations and standard deviations will be first 
 #   divided by the mean of all standard deviations in case of inefficiency due to 
 #   large value of standard deviation. In the case of homogeneous variance, the 
@@ -20,10 +23,8 @@ function(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = F
 #  If verbose=TRUE then the routine returns a list with several arguments, including
 #   muhat which is the result of the thresholding.
 #  If verbose=FALSE then only muhat is returned.
-#  It is assumed that the standard deviation of the data is sdev; if sdev=NA, then
-#   it is estimated using the function mad(x).
 #
-#  find the standard deviation if necessary and estimate the parameters
+  # Find the standard deviation if necessary and estimate the parameters
   pr <- substring(prior, 1, 1)
   
   if(length(sdev)==1){

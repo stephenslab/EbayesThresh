@@ -1,12 +1,15 @@
 "wandafromx" <-
 function(x, s, universalthresh=TRUE)
 {
-#  finds the marginal max lik estimators of w and a, using a bivariate optimization
 #
-#  The threshold is constrained to lie between 0 and sqrt ( 2 log (n)) * s
+#  Find the marginal max lik estimators of w and a given standard deviation s, 
+#   using a bivariate optimization;
+#  If universalthresh=TRUE, the thresholds will be upper bounded by universal threshold 
+#   adjusted by standard deviation. The threshold is constrained to lie between 0 and 
+#   sqrt ( 2 log (n)) * s. Otherwise, threshold can take any nonnegative value;
+#  If running R, the routine optim is used; in S-PLUS the routine is nlminb.
 #
-#  If running R, the routine optim is used; in S-PLUS the routine is nlminb
-#
+  # Range for thresholds
 	if(universalthresh) { thi <- sqrt(2 * log(length(x))) * s
 	} else{ thi <- Inf }
 	tlo <- rep(0, length(s))

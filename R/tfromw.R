@@ -1,13 +1,12 @@
 "tfromw" <-
 function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
 {
-#  given the vector of weights w, find the threshold or vector of
+#
+#  Given the vector of weights w and s (sd), find the threshold or vector of
 #   thresholds corresponding to these weights, under the specified prior.
-#
-#  if bayesfac=TRUE the Bayes factor thresholds are found, otherwise the posterior median
+#  If bayesfac=TRUE the Bayes factor thresholds are found, otherwise the posterior median
 #   thresholds are found.
-#
-#  if the Laplace prior is used, a gives the value of the scale factor
+#  If the Laplace prior is used, a gives the value of the scale factor
 #
 	pr <- substring(prior, 1, 1)
 	if(bayesfac) {
@@ -22,8 +21,8 @@ function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
 	  z <- 0
 		zz <- rep(0, length(s))
 		if(pr == "l"){
-		  # When x/s-s*a>25, laplace.threshzero is close to 1/2. 
-		  # This can be treated as the upper bound for search.
+		  # When x/s-s*a>25, laplace.threshzero has value close to 1/2;
+		  #  The boundary value of x can be treated as the upper bound for search.
 			tt <- vecbinsolv(zz, laplace.threshzero, 0, s*(25+s*a), s = s, w = w, 
 				a = a)
 		}

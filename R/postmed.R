@@ -2,9 +2,8 @@
 function(x, s, w, prior = "laplace", a = 0.5)
 {
 #
-# find the posterior median for the appropriate prior for 
-#   given x and w and a, assuming the error variance
-#   is 1.  
+#  Find the posterior median for the appropriate prior for 
+#   given x, s (sd), w and a. 
 #
 	pr <- substring(prior, 1, 1)
 	if(pr == "l")
