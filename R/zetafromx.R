@@ -2,16 +2,17 @@
 function(xd, cs, pilo=NA, prior = "laplace", a = 0.5)
 {
 #
-#  given a sequence xd, a vector of scale factors cs and
-#  a lower limit pilo, find the marginal maximum likelihood
-#  estimate of the parameter zeta such that the prior prob
-#  is of the form median( pilo, zeta*cs, 1)
+#  Given a sequence xd, a vector of scale factors cs and
+#   a lower limit pilo, find the marginal maximum likelihood
+#   estimate of the parameter zeta such that the prior prob
+#   is of the form median( pilo, zeta*cs, 1)
 #
-#  if pilo=NA then it is calculated according to the sample size
-#  to corrrespond to the universal threshold
+#  If pilo=NA then it is calculated according to the sample size
+#   to corrrespond to the universal threshold
 #  
-#
 #  Find the beta values and the minimum weight if necessary
+#
+#  Current version allows for standard deviation of 1 only.
 #
 	pr <- substring(prior, 1, 1)
 	nx <- length(xd)

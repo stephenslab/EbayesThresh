@@ -1,9 +1,9 @@
 "tfromx" <-
 function(x, sdev=NA, prior = "laplace", bayesfac = FALSE, a = 0.5, universalthresh=TRUE, stabadjustment=FALSE)
 {
-#  given the data x, the prior, and any other parameters, 
-#   find the threshold
-#   corresponding to the marginal maximum likelihood estimator
+#
+#  Given the data x, the prior, and any other parameters, 
+#   find the threshold corresponding to the marginal maximum likelihood estimator
 #   of the mixing weight.
 #
   pr <- substring(prior, 1, 1)

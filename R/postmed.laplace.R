@@ -2,14 +2,13 @@
 function(x, s, w, a = 0.5)
 {
 #
-# find the posterior median for the Laplace prior for 
-#   given x (possibly vector), s (sd vector), w and a.
+#  Find the posterior median for the Laplace prior for 
+#   given x (observations), s (sd), w and a.
 #
-#  only allow a < 20 for input value.
+  # Only allow a < 20 for input value
   a <- min(a, 20)
-#  Work with the absolute value of x, and for x > 25 use the approximation
-#    to dnorm(x-a)*beta.laplace(x, a)
-#
+  # Work with the absolute value of x, and for x > 25 use the approximation
+  #  to dnorm(x-a)*beta.laplace(x, a)
 	sx <- sign(x)
 	x <- abs(x)
 	xma <- x/s - s*a

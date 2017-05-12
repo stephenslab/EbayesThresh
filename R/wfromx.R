@@ -1,12 +1,9 @@
 "wfromx" <-
 function(x, s, prior = "laplace", a = 0.5)
 {
-#  given the vector of data x and the function betaf
-#   which finds beta(x), 
-#  find the value of w that zeroes S(w) in the
-#  range 
-#
-#  works by successive bisection, carrying out nits harmonic bisections
+#  Given the vector of data x and s (sd),
+#   find the value of w that zeroes S(w) in the
+#   range by successive bisection, carrying out nits harmonic bisections
 #   of the original interval between wlo and 1.  
 #  
 #
