@@ -1,6 +1,8 @@
 # EbayesThresh: Empirical Bayes thresholding in R
 
 [![CRAN status badge](http://www.r-pkg.org/badges/version/EbayesThresh)](https://cran.r-project.org/package=EbayesThresh)
+[![Travis CI Build Status]()](https://travis-ci.org/pcarbo/varbvs)
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/xqnqhsk5na3855nq?svg=true)](https://ci.appveyor.com/project/pcarbo/varbvs)
 
 The EbayesThresh package provides a simple interface for Empirical
 Bayes thresholding using the methods developed by I. M. Johnstone and
