@@ -2,8 +2,7 @@
 
 [![CRAN status badge](http://www.r-pkg.org/badges/version/EbayesThresh)](https://cran.r-project.org/package=EbayesThresh)
 [![Travis CI Build Status](https://travis-ci.org/stephenslab/EbayesThresh.svg?branch=master)](https://travis-ci.org/stephenslab/EbayesThresh)
-[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/0lmh3taxi4etdtix
-?svg=true)](https://ci.appveyor.com/project/pcarbo/ebayesthresh)
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/0lmh3taxi4etdtix?svg=true)](https://ci.appveyor.com/project/pcarbo/ebayesthresh)
 
 The EbayesThresh package provides a simple interface for Empirical
 Bayes thresholding using the methods developed by I. M. Johnstone and
