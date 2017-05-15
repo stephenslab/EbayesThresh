@@ -4,7 +4,7 @@ Type: Package
 Title: Empirical Bayes Thresholding and Related Methods
 Version: 1.4.0
 Date: 2017-05-15
-Authors@R: c(person("Bernard","Silverman",middle = "W.",role="aut"),
+Authors@R: c(person("Bernard W.","Silverman",role="aut"),
              person("Ludger","Evers",role=c("aut","cre"),
 	            email = "ludger@stats.gla.ac.uk"),
              person("Kan","Xu",role="aut"))

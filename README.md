@@ -19,6 +19,20 @@ the full text of the license.
 
 *Add instructions here.*
 
+## What's included
+
+This is the current structure of the R package:
+
+```bash
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+├── README.md
+├── inst
+│   └── kan-xu-thesis.pdf
+└── man
+```
+
 ## Credits
 
 The *EbayesThresh* software package was originally developed by Bernard
