@@ -1,4 +1,4 @@
-# EbayesThresh: R package for Empirical Bayes Thresholding and related methods
+# EbayesThresh: Empirical Bayes thresholding in R
 
 The EbayesThresh package provides a simple interface for Empirical
 Bayes thresholding using the methods developed by I. M. Johnstone and
@@ -21,3 +21,6 @@ the full text of the license.
 
 ## Credits
 
+The *EbayesThresh* software package was originally developed by Bernard
+W. Silverman and Ludger Evers, with extensions introduced by Kan Xu
+while at the University of Chicago Department of Statistics.
