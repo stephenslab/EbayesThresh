@@ -7,7 +7,9 @@ Date: 2017-05-15
 Authors@R: c(person("Bernard W.","Silverman",role="aut"),
              person("Ludger","Evers",role=c("aut","cre"),
 	            email = "ludger@stats.gla.ac.uk"),
-             person("Kan","Xu",role="aut"))
+             person("Kan","Xu",role="aut"),
+	     person("Peter","Carbonetto",role="aut"),
+	     person("Matthew","Stephens",role="aut"))
 Enhances: wavethresh
 Description: Empirical Bayes thresholding using the methods developed
     by I. M. Johnstone and B. W. Silverman. The basic problem is to
@@ -18,10 +20,11 @@ Description: Empirical Bayes thresholding using the methods developed
     distribution that is a mixture of an atom of probability at zero
     and a suitable heavy-tailed distribution. The mixing parameter can
     be estimated by a marginal maximum likelihood approach. This leads
-    to an adaptive thresholding approach on the original
-    data. Extensions of the basic method, in particular to wavelet
+    to an adaptive thresholding approach on the original data.
+    Extensions of the basic method, in particular to wavelet
     thresholding, are also implemented within the package.
 License: GPL (>= 2)
+Imports: stats
 Packaged: 2012-10-29 08:57:00 UTC; ripley
 Repository: CRAN
 Date/Publication: 2012-10-29 08:57:00
