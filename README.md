@@ -39,6 +39,7 @@ This is the current structure of the R package:
 
 ## Credits
 
-The *EbayesThresh* software package was originally developed by Bernard
-W. Silverman and Ludger Evers, with extensions introduced by Kan Xu
-while at the University of Chicago Department of Statistics.
+The *EbayesThresh* software package was originally developed by
+Bernard W. Silverman and Ludger Evers, with extensions introduced by
+Kan Xu and Matthew Stephens in the Department of Statistics at the
+University of Chicago.
