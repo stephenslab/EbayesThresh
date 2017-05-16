@@ -1,7 +1,9 @@
 "wfromt" <-
 function(tt, s, prior = "laplace", a = 0.5)
 {
-# find the weight that has posterior median threshold tt, 
+#
+#  Find the weight that has posterior median threshold tt, 
+#   given s (sd) and a.
 #
 	pr <- substring(prior, 1, 1)
 	if(pr == "l"){

@@ -1,19 +1,18 @@
 "wfromx" <-
-function(x, s, prior = "laplace", a = 0.5)
+function(x, s, prior = "laplace", a = 0.5, universalthresh=TRUE)
 {
-#  given the vector of data x and the function betaf
-#   which finds beta(x), 
-#  find the value of w that zeroes S(w) in the
-#  range 
-#
-#  works by successive bisection, carrying out nits harmonic bisections
+#  Given the vector of data x and s (sd),
+#   find the value of w that zeroes S(w) in the
+#   range by successive bisection, carrying out nits harmonic bisections
 #   of the original interval between wlo and 1.  
 #  
-#
 	pr <- substring(prior, 1, 1)
-	tuniv <- sqrt(2 * log(length(x))) * s
-	wlo <- wfromt(tuniv, s, prior, a)
-	wlo <- max(wlo)
+	if(pr == "c") s = 1
+	if(universalthresh) {
+    	tuniv <- sqrt(2 * log(length(x))) * s
+    	wlo <- wfromt(tuniv, s, prior, a)
+    	wlo <- max(wlo)
+	} else{ wlo=0 }
 	if(pr == "l") {
 		beta <- beta.laplace(x, s, a)
 	}
