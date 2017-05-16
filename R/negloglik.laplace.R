@@ -2,7 +2,8 @@
 function(xpar, xx, ss, tlo, thi)
 {
 #
-#  Marginal negative log likelihood function for laplace prior
+#  Marginal negative log likelihood function for laplace prior. 
+#   Constraints for thresholds need to be passed externally.
 #  
 #  xx   :data
 #  xpar :vector of two parameters:

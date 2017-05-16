@@ -4,15 +4,14 @@
 \alias{cauchy.threshzero}
 \title{Find threshold from mixing weight}
 \description{
-Given a weight or vector of weights (i.e. prior probabilities that the parameter is nonzero), 
-find the corresponding
-threshold(s) under the specified prior.
+Given a single value or a vector of weights (i.e. prior probabilities that the parameter is nonzero) and sampling standard deviations (sd equals 1 for Cauchy prior), find the corresponding threshold(s) under the specified prior.
 }
 \usage{
-tfromw(w, prior = "laplace", bayesfac = FALSE, a = 0.5)
+tfromw(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
 }
 \arguments{
   \item{w}{prior weight or vector of weights}
+  \item{s}{ a single value or a vector of standard deviations if the Laplace prior is used. If \code{w} is a vector, must have the same length as \code{w}. Ignored if Cauchy prior is used.}
   \item{prior}{specification of prior to be used; can be \eqn{\code{"cauchy"}}{"cauchy"} or 
 \eqn{\code{"laplace"}}{"laplace"}}
   \item{bayesfac}{specifies whether Bayes factor threshold should be used instead of posterior median threshold}
@@ -40,9 +39,7 @@ The value or vector of values of the estimated threshold(s).
 \author{Bernard Silverman}
 \seealso{\code{\link{wfromx}},\code{\link{tfromx}},\code{\link{wandafromx}}}
 \examples{
-tfromw(c(0.05, 0.1)) 
-
+tfromw(c(0.05, 0.1), s=1) 
 tfromw(c(0.05, 0.1), prior="cauchy", bayesfac=TRUE)
-
 }
 \keyword{nonparametric}

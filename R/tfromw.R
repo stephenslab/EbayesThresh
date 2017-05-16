@@ -11,16 +11,19 @@ function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)
 	pr <- substring(prior, 1, 1)
 	if(bayesfac) {
 		z <- 1/w - 2
-		zz <- rep(z, length(s))
-		if(pr == "l")
-			tt <- vecbinsolv(zz, beta.laplace, 0, 10, s = s, a = a)
+		if(pr == "l"){ 
+		  if(length(w)>=length(s)) {
+		    zz <- z
+		  } else { zz <- rep(z, length(s)) }
+		  tt <- vecbinsolv(zz, beta.laplace, 0, 10, s = s, a = a)
+		}
 		if(pr == "c")
 			tt <- vecbinsolv(z, beta.cauchy, 0, 10)
 	}
 	else {
 	  z <- 0
-		zz <- rep(0, length(s))
 		if(pr == "l"){
+		  zz <- rep(0, max(length(s), length(w)))
 		  # When x/s-s*a>25, laplace.threshzero has value close to 1/2;
 		  #  The boundary value of x can be treated as the upper bound for search.
 			tt <- vecbinsolv(zz, laplace.threshzero, 0, s*(25+s*a), s = s, w = w, 

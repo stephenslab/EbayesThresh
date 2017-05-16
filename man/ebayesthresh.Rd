@@ -3,11 +3,11 @@
 \title{Empirical Bayes thresholding on a sequence}
 \description{
 Given a sequence of data, performs Empirical Bayes thresholding, 
-as discussed in Johnstone and Silverman (2004).   
+as discussed in Johnstone and Silverman (2004). 
 }
 \usage{
-ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, 
-       sdev = NA, verbose = FALSE, threshrule = "median")
+ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = FALSE, 
+	threshrule = "median", universalthresh = TRUE, stabadjustment = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -32,7 +32,10 @@ ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 	the sampling standard deviation of the data \code{x}. 
 	If, on entry, \code{sdev=NA}, then the standard deviation will be 
 	estimated using the median absolute deviation from zero, 
-	as \code{mad(x, center=0)}.
+	as \code{mad(x, center=0)}. If a single value is passed to \code{sdev},
+	sampling standard deviation will be the same for all observations. A vector
+	of the same length as data sequence can be passed to allow heterogeneous 
+	standard deviation, currently only for Laplace prior.
 	}
   \item{verbose}{ controls the level of output. See below.}
   \item{threshrule}{%
@@ -43,24 +46,27 @@ ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 	\code{soft} (carry out soft thresholding); 
 	\code{none} (find various parameters, but do not carry out any thresholding).
 	}
+	\item{universalthresh}{ if \code{universalthresh=TRUE}, the thresholds will be 
+	upper bounded by universal threshold; otherwise, the thresholds can take
+	any non-negative values.
+	}
+	\item{stabadjustment}{ for heterogeneous sampling standard deviation. If 
+	\code{stabadjustment=TRUE}, the vectors of standard deviations and data values 
+	will be divided by the mean of standard deviations in case of inefficiency 
+	caused by large value of standard deviation.
+	}
 }
 \details{
 It is assumed that the data vector \eqn{(x_1, \ldots, x_n)} is such that each 
 \eqn{x_i} is drawn independently from a normal distribution with mean 
-\eqn{\theta_i} and variance \eqn{\sigma^2}.
+\eqn{\theta_i} and variance \eqn{\sigma_i^2} (\eqn{\sigma_i} is the same in the homogeneous case).
 The prior distribution of each \eqn{\theta_i} is a mixture with probability 
-\eqn{1-w}
-of zero and probability \eqn{w} of a given symmetric heavy-tailed distribution.
-The mixing weight \eqn{w} is estimated by marginal maximum likelihood.
-Given the mixing weight, and possibly a scale factor in the symmetric distribution, are estimated by marginal 
-maximum likelihood.   
-The resulting values are used as the hyperparameters in the prior.
+\eqn{1-w} of zero and probability \eqn{w} of a given symmetric heavy-tailed distribution.
+The mixing weight, and possibly a scale factor in the symmetric distribution, are estimated by marginal maximum likelihood. The resulting values are used as the hyperparameters in the prior.
 
-The parameters can be estimated as the posterior median or the posterior mean given the data, or by
-hard or soft thresholding using the posterior median threshold.  
+The true effects \eqn{\theta_i} can be estimated as the posterior median or the posterior mean given the data, or by hard or soft thresholding using the posterior median threshold.  
 If hard or soft thresholding is chosen, then there is the additional choice of using the
-Bayes factor threshold, which is the value such that 
-the posterior probability of zero is 
+Bayes factor threshold, which is the value such thatthe posterior probability of zero is 
 exactly half if the data value is equal to the threshold.  
 }
 \value{
@@ -75,7 +81,7 @@ If \code{verbose=TRUE}, a list with the following elements:
 \item{w}{ the mixing weight as estimated by marginal maximum likelihood}
 \item{a}{ (only present if Laplace prior used) the scale factor as supplied or estimated}
 \item{bayesfac}{the value of the parameter \code{bayesfac}, determining whether Bayes factor or posterior median thresholds are used}
-\item{sdev}{ the standard deviation of the data as supplied or estimated}
+\item{sdev}{ the standard deviations of the data as supplied or estimated}
 \item{threshrule}{ the thresholding rule used, as specified above}
 }
 \references{
@@ -105,6 +111,10 @@ including the draft of a monograph by I. M. Johnstone.
 \author{Bernard Silverman}
 \seealso{\code{\link{tfromx}}, \code{\link{threshld}}}
 \examples{
-ebayesthresh(x=rnorm(100, c( rep(0,90), rep(5,10))), prior="cauchy", sdev=NA)
+# Data with homogeneous sampling standard deviation
+ebayesthresh(x=rnorm(100, c(rep(0,90), rep(5,10))), prior="cauchy", sdev=NA)
+# Data with heterogeneous sampling standard deviation
+sd = c(rep(2, 10), rep(1, 90))
+ebayesthresh(x=rnorm(100, c(rep(0,90), rep(5,10)), sd), prior="laplace", sdev=sd)
 }
 \keyword{nonparametric}% at least one, from doc/KEYWORDS
