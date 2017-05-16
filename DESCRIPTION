@@ -25,7 +25,6 @@ Description: Empirical Bayes thresholding using the methods developed
     thresholding, are also implemented within the package.
 License: GPL (>= 2)
 Imports: stats
-Packaged: 2012-10-29 08:57:00 UTC; ripley
 Repository: CRAN
 Date/Publication: 2012-10-29 08:57:00
 NeedsCompilation: no

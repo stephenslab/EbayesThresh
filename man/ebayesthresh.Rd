@@ -6,8 +6,9 @@ Given a sequence of data, performs Empirical Bayes thresholding,
 as discussed in Johnstone and Silverman (2004). 
 }
 \usage{
-ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA, verbose = FALSE, 
-	threshrule = "median", universalthresh = TRUE, stabadjustment = FALSE)
+ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA,
+verbose = FALSE, threshrule = "median", universalthresh = TRUE,
+stabadjustment = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
