@@ -5,7 +5,8 @@
 Given a vector of data and standard deviations (sd equals 1 for Cauchy prior), find the value or vector (heterogeneous sampling standard deviation with Laplace prior) of thresholds corresponding to the marginal maximum likelihood choice of weight.
 }
 \usage{
-tfromx(x, s, prior = "laplace", bayesfac = FALSE, a = 0.5, universalthresh=TRUE)
+  tfromx(x, s, prior = "laplace", bayesfac = FALSE, a = 0.5,
+         universalthresh = TRUE)
 }
 \arguments{
   \item{x}{ vector of data}

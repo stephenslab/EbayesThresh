@@ -23,8 +23,7 @@ Description: Empirical Bayes thresholding using the methods developed
     to an adaptive thresholding approach on the original data.
     Extensions of the basic method, in particular to wavelet
     thresholding, are also implemented within the package.
-License: GPL (>= 2)
 Imports: stats
-Repository: CRAN
-Date/Publication: 2012-10-29 08:57:00
+Suggests: testthat
 NeedsCompilation: no
+License: GPL (>= 2)
