@@ -37,7 +37,7 @@ This is the current structure of the R package:
 └── man
 ```
 
-## Credits
+## Credits 
 
 The *EbayesThresh* software package was originally developed by
 Bernard W. Silverman and Ludger Evers, with extensions introduced by
