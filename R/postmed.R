@@ -1,6 +1,4 @@
-"postmed" <-
-function(x, s, w, prior = "laplace", a = 0.5)
-{
+postmed <- function (x, s, w, prior = "laplace", a = 0.5) {
 #
 #  Find the posterior median for the appropriate prior for 
 #   given x, s (sd), w and a. 
