@@ -1,10 +1,7 @@
-"beta.cauchy" <-
-function(x)
-{
+beta.cauchy <- function(x) {
 #
-#   Find the function beta
-#    for the mixed normal prior with Cauchy tails.  It is assumed that the 
-#    noise variance is equal to one.  
+#   Find the function beta for the mixed normal prior with Cauchy
+#   tails.  It is assumed that the noise variance is equal to one.
 #
 	phix <- dnorm(x)
 	j <- (x != 0)

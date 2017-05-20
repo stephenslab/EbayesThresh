@@ -1,6 +1,4 @@
-"threshld" <-
-function(x, t, hard = TRUE)
-{
+threshld <- function(x, t, hard = TRUE) {
 #
 #  threshold the data x using threshold t
 #  if hard=TRUE use hard thresholding

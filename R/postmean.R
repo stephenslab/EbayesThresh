@@ -1,6 +1,4 @@
-"postmean" <-
-function(x, s, w, prior = "laplace", a = 0.5)
-{
+postmean <- function(x, s, w, prior = "laplace", a = 0.5) {
 #
 #  Find the posterior mean for the appropriate prior for 
 #   given x, s (sd), w and a.

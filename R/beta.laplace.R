@@ -1,6 +1,4 @@
-"beta.laplace" <-
-function(x, s, a = 0.5)
-{
+beta.laplace <- function(x, s, a = 0.5) {
 #
 #  The function beta for the Laplace prior given parameter a and s (sd)
 #

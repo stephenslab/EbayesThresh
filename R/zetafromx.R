@@ -1,6 +1,4 @@
-"zetafromx" <-
-function(xd, cs, pilo=NA, prior = "laplace", a = 0.5)
-{
+zetafromx <- function(xd, cs, pilo = NA, prior = "laplace", a = 0.5) {
 #
 #  Given a sequence xd, a vector of scale factors cs and
 #   a lower limit pilo, find the marginal maximum likelihood
@@ -16,9 +14,10 @@ function(xd, cs, pilo=NA, prior = "laplace", a = 0.5)
 #
 	pr <- substring(prior, 1, 1)
 	nx <- length(xd)
-	if (is.na(pilo)) pilo <- wfromt(sqrt(2 * log(length(xd))), s=1, prior, a)
+	if (is.na(pilo))
+          pilo <- wfromt(sqrt(2 * log(length(xd))), s=1, prior, a)
 	if(pr == "l")
-		beta <- beta.laplace(xd, s=1, a)
+	  beta <- beta.laplace(xd, s=1, a)
 	if(pr == "c") beta <- beta.cauchy(xd)
 #
 #  Find jump points zj in derivative of log likelihood as function
@@ -29,11 +28,10 @@ function(xd, cs, pilo=NA, prior = "laplace", a = 0.5)
 	zj <- sort(unique(c(zs1, zs2)))
 	cb <- cs * beta
 	mz <- length(zj)
-	zlmax <- NULL	#
-#  Find left and right derivatives at each zj
-#   and check which are local minima
-#  Check internal zj first
-#
+	zlmax <- NULL
+        
+#  Find left and right derivatives at each zj and check which are
+#  local minima Check internal zj first
 	lmin <- rep(FALSE, mz)
 	for(j in (2:(mz - 1))) {
 		ze <- zj[j]
@@ -54,11 +52,13 @@ function(xd, cs, pilo=NA, prior = "laplace", a = 0.5)
 #
 	cbir <- cb[zj[1] == zs1]
 	rd <- sum(cbir/(1 + zj[1] * cbir))
-	if(rd > 0) lmin[1] <- TRUE	else zlmax <- zj[1]
+	if(rd > 0) lmin[1] <- TRUE else zlmax <- zj[1]
 	cbil <- cb[zj[mz] == zs2]
 	ld <- sum(cbil/(1 + zj[mz] * cbil))
-	if(ld < 0) lmin[mz] <- TRUE else zlmax <- zj[mz]	#
-#  Flag all local minima and do a binary search between them to find the local maxima
+	if(ld < 0) lmin[mz] <- TRUE else zlmax <- zj[mz]
+        
+#  Flag all local minima and do a binary search between them to find
+#  the local maxima
 #
 	zlmin <- zj[lmin]
 	nlmin <- length(zlmin)
@@ -87,6 +87,6 @@ function(xd, cs, pilo=NA, prior = "laplace", a = 0.5)
 	}
 	zeta <- zlmax[zm == max(zm)]
 	zeta <- min(zeta)
-	w <- pmin(1, pmax(zeta*cs, pilo) ) 
+	w <- pmin(1, pmax(zeta*cs, pilo)) 
 	return(list(zeta=zeta, w=w, cs=cs, pilo=pilo))
 }

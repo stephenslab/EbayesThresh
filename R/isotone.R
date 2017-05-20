@@ -1,6 +1,4 @@
-"isotone" <-
-function(x, wt = rep(1, length(x)), increasing = FALSE)
-{
+isotone <- function(x, wt = rep(1, length(x)), increasing = FALSE) {
 #
 #   find the weighted least squares isotone fit to the 
 #   sequence x, the weights given by the sequence wt
@@ -26,7 +24,7 @@ function(x, wt = rep(1, length(x)), increasing = FALSE)
 #  find all local minima and maxima
 #
 		jmax <- (1:nx)[c(dx <= 0, FALSE) & c(TRUE, dx > 0)]
-		jmin <- (1:nx)[c(dx > 0, TRUE) & c(FALSE, dx <= 0)]	#	
+		jmin <- (1:nx)[c(dx > 0, TRUE) & c(FALSE, dx <= 0)]
 #  do pav step for each pair of maxima and minima
 #
 #  add up weights within subsequence that is pooled
@@ -42,8 +40,8 @@ function(x, wt = rep(1, length(x)), increasing = FALSE)
 			x[(jmax[jb] + 1):jmin[jb]] <- NA
 		}
 #
-#  clean up within iteration, eliminating the parts of sequences that were set
-#   to NA
+#  clean up within iteration, eliminating the parts of sequences that
+#  were set to NA
 #
 		ind <- !is.na(x)
 		x <- x[ind]
@@ -53,8 +51,8 @@ function(x, wt = rep(1, length(x)), increasing = FALSE)
 		nx <- length(x)
 	}
 # 
-#  final cleanup:  reconstruct z at all points by repeating the pooled values
-#    the appropriate number of times
+#  final cleanup: reconstruct z at all points by repeating the pooled
+#    values the appropriate number of times
 #
 	jj <- rep(0, nn)
 	jj[ip] <- 1

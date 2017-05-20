@@ -1,6 +1,4 @@
-"vecbinsolv" <-
-function(zf, fun, tlo, thi, nits = 30, ...)
-{
+vecbinsolv <- function(zf, fun, tlo, thi, nits = 30, ...) {
 #
 #  Given a monotone function fun, and a vector of values
 #   zf find a vector of numbers t such that f(t) = zf.
@@ -20,9 +18,13 @@ function(zf, fun, tlo, thi, nits = 30, ...)
 #
 	nz <- length(zf)
 	if(length(tlo)==1) tlo <- rep(tlo, nz)
-	if(length(tlo)!=nz) stop("Lower constraint has to be homogeneous or has the same length as #functions.")
+	if(length(tlo)!=nz)
+          stop(paste("Lower constraint has to be homogeneous",
+                     "or has the same length as #functions."))
 	if(length(thi)==1) thi <- rep(thi, nz)
-	if(length(thi)!=nz) stop("Upper constraint has to be homogeneous or has the same length as #functions.")
+	if(length(thi)!=nz)
+          stop(paste("Upper constraint has to be homogeneous",
+                     "or has the same length as #functions."))
 
 #  carry out nits bisections
 #
