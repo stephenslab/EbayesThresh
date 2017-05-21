@@ -51,14 +51,14 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
       stop(paste("Standard deviation has to be homogeneous or has the",
                  "same length as observations."))
   }
-  stabadjustment_condition = (length(sdev)==1) | stabadjustment
-  if(stabadjustment_condition){
+  stabadjustment_condition = (length(sdev) == 1) | stabadjustment
+  if (stabadjustment_condition) {
     m_sdev <- mean(sdev)
     s <- sdev/m_sdev
     x <- x/m_sdev
   } else { s <- sdev }
   
-	if((pr == "l") & is.na(a)) {
+	if ((pr == "l") & is.na(a)) {
 	  pp <- wandafromx(x, s, universalthresh)
           w  <- pp$w
           a  <- pp$a
