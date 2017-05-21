@@ -40,12 +40,14 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
   # Find the standard deviation if necessary and estimate the parameters
   pr <- substring(prior, 1, 1)
   
-  if(length(sdev)==1){
-  	if(is.na(sdev)) { sdev <- mad(x, center = 0) }
+  if(length(sdev) == 1) {
+      if(is.na(sdev)) {
+          sdev <- mad(x, center = 0)
+      }
   } else{
     if(pr == "c")
-      stop("Standard deviation has to be homogeneous for Cauchy prior.")
-    if(length(sdev)!=length(x))
+      stop("Standard deviation has to be homogeneous for Cauchy prior")
+    if(length(sdev) != length(x))
       stop(paste("Standard deviation has to be homogeneous or has the",
                  "same length as observations."))
   }
@@ -58,15 +60,18 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
   
 	if((pr == "l") & is.na(a)) {
 	  pp <- wandafromx(x, s, universalthresh)
-          w <- pp$w
-          a <- pp$a
+          w  <- pp$w
+          a  <- pp$a
 	}
-	else w <- wfromx(x, s, prior = prior, a = a, universalthresh)
+	else
+          w <- wfromx(x, s, prior = prior, a = a, universalthresh)
 	if(pr != "m" | verbose) {
 	  tt <- tfromw(w, s, prior = prior, bayesfac = bayesfac, a = a)
 	  if(stabadjustment_condition) {
 	    tcor <- tt * m_sdev
-	  } else { tcor <- tt }
+          } else {
+            tcor <- tt
+          }
 	}
 	if(threshrule == "median")
 		muhat <- postmed(x, s, w, prior = prior, a = a)
@@ -76,7 +81,8 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 		muhat <- threshld(x, tt)
 	if(threshrule == "soft")
 		muhat <- threshld(x, tt, hard = FALSE)
-	if(threshrule == "none") muhat <- NA	#
+        if(threshrule == "none")
+                muhat <- NA
 
 	# Now return desired output
 	if(stabadjustment_condition) {
