@@ -4,6 +4,8 @@ importFrom(stats,qnorm)
 importFrom(stats,mad)
 importFrom(stats,optim)
 importFrom(stats,nlminb)
+importFrom(wavethresh,accessD)
+importFrom(wavethresh,putD)
 
 export(beta.cauchy,beta.laplace,ebayesthresh,ebayesthresh.wavelet,
        postmean,postmed,tfromw,tfromx,threshld,wandafromx,wfromt,

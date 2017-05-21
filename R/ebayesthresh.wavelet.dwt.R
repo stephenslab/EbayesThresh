@@ -1,7 +1,7 @@
-"ebayesthresh.wavelet.dwt" <-
-function (x.dwt, vscale = "independent", smooth.levels = Inf, 
-    prior = "laplace", a = 0.5, bayesfac = FALSE, threshrule = "median") 
-{
+ebayesthresh.wavelet.dwt <-
+  function (x.dwt, vscale = "independent", smooth.levels = Inf, 
+            prior = "laplace", a = 0.5, bayesfac = FALSE,
+            threshrule = "median") {
         nlevs <- length(x.dwt)-1
         slevs <- min(nlevs, smooth.levels)
         if (is.character(vscale)) {
@@ -12,9 +12,9 @@ function (x.dwt, vscale = "independent", smooth.levels = Inf,
                 vscale <- NA
         }
         for (j in 1:slevs) {
-            x.dwt[[j]] <- ebayesthresh(x.dwt[[j]], 
-                prior, a, bayesfac, vscale, FALSE, 
-                threshrule)
+            x.dwt[[j]] <-
+              ebayesthresh(x.dwt[[j]], prior, a, bayesfac, vscale,
+                           FALSE, threshrule)
         }
      return(x.dwt)
 }
