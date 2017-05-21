@@ -1,12 +1,12 @@
-"postmed.laplace" <-
-function(x, s, w, a = 0.5)
-{
+postmed.laplace <- function(x, s, w, a = 0.5) {
 #
 #  Find the posterior median for the Laplace prior for 
 #   given x (observations), s (sd), w and a.
 #
+    
   # Only allow a < 20 for input value
   a <- min(a, 20)
+  
   # Work with the absolute value of x, and for x > 25 use the approximation
   #  to dnorm(x-a)*beta.laplace(x, a)
 	sx <- sign(x)

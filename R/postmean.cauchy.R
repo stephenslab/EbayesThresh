@@ -1,9 +1,7 @@
-"postmean.cauchy" <-
-function(x, w)
-{
+postmean.cauchy <- function(x, w) {
 #
-#  Find the posterior mean for the quasi-Cauchy prior with mixing weight w
-#   given data x, which may be a scalar or a vector.
+#  Find the posterior mean for the quasi-Cauchy prior with mixing
+#   weight w given data x, which may be a scalar or a vector.
 #
 	muhat <- x
 	ind <- (x == 0)

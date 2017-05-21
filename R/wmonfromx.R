@@ -1,10 +1,9 @@
-"wmonfromx" <-
-function(xd, prior = "laplace", a = 0.5, tol = 1e-008, maxits = 20)
-{
+wmonfromx <- function (xd, prior = "laplace", a = 0.5,
+                       tol = 1e-08, maxits = 20) {
 #
-#  Find the monotone marginal maximum likelihood estimate of the mixing weights
-#   for the Laplace prior with parameter a.  It is assumed that the 
-#   noise variance is equal to one.
+#  Find the monotone marginal maximum likelihood estimate of the
+#   mixing weights for the Laplace prior with parameter a.  It is
+#   assumed that the noise variance is equal to one.
 #
 #  Find the beta values and the minimum weight
 #  
@@ -15,8 +14,10 @@ function(xd, prior = "laplace", a = 0.5, tol = 1e-008, maxits = 20)
 	wmin <- wfromt(sqrt(2 * log(length(xd))), s=1, prior, a)
 	winit <- 1
 	if(pr == "l")
-		beta <- beta.laplace(xd, a)
-	if(pr == "c") beta <- beta.cauchy(xd)	#
+	  beta <- beta.laplace(xd, a)
+	if(pr == "c")
+           beta <- beta.cauchy(xd)
+        
 #   now conduct iterated weighted least squares isotone regression
 #    
 	w <- rep(winit, length(beta))
@@ -30,8 +31,9 @@ function(xd, prior = "laplace", a = 0.5, tol = 1e-008, maxits = 20)
 		zinc <- max(abs(range(wnew - w)))
 		w <- wnew
 		if(zinc < tol)
-			return(w)
+ 		  return(w)
 	}
-	cat("Warning: more iterations required to achieve convergence \n")
+        
+	warning("More iterations required to achieve convergence")
 	return(w)
 }
