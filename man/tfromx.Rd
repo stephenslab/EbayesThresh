@@ -20,8 +20,7 @@ marginal maximum likelihood choice of weight.
     \code{x}. Ignored if Cauchy prior is used.}
 
   \item{prior}{Specification of prior to be used; can be
-    \eqn{\code{"cauchy"}}{"cauchy"} or
-    \eqn{\code{"laplace"}}{"laplace"}.}
+    \code{"cauchy"} or \code{"laplace"}.}
   
   \item{bayesfac}{Specifies whether Bayes factor threshold should be
     used instead of posterior median threshold.}

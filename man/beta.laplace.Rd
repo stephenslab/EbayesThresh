@@ -21,8 +21,8 @@ is the convolution of the Laplace density with scale parameter \eqn{a},
   \item{a}{the scale parameter of the Laplace distribution}
 }
 \value{
-  A vector of the same length as \eqn{\code{x}}{x} is returned,
-  containing the value(s) \eqn{\beta(\code{x})}{beta(x)}.
+  A vector of the same length as \code{x} is returned,
+  containing the value(s) \eqn{beta(x)}.
 }
 \references{See \code{\link{ebayesthresh}} and
   \url{http://www.bernardsilverman.com}}

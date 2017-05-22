@@ -16,8 +16,8 @@ threshold(s) under the specified prior.}
   Laplace prior is used. If \code{w} is a vector, must have the same
   length as \code{w}. Ignored if Cauchy prior is used.}
 
-  \item{prior}{specification of prior to be used; can be
-    \eqn{\code{"cauchy"}}{"cauchy"} or \eqn{\code{"laplace"}}{"laplace"}}
+  \item{prior}{Specification of prior to be used; can be
+    \code{"cauchy"} or \code{"laplace"}.}
   
   \item{bayesfac}{Specifies whether Bayes factor threshold should be
     used instead of posterior median threshold.}
@@ -28,9 +28,9 @@ threshold(s) under the specified prior.}
 \details{
 The Bayes factor method uses a threshold such that the posterior
 probability of zero is exactly half if the data value is equal to the
-threshold. If \code{bayesfac} is set to \eqn{\code{FALSE}}{FALSE} (the
-default) then the threshold is that of the posterior median function
-given the data value.
+threshold. If \code{bayesfac} is set to \code{FALSE} (the default) then
+the threshold is that of the posterior median function given the data
+value.
 
 The routine carries out a binary search over each component of an
 appropriate vector function, using the routine \code{\link{vecbinsolv}}.

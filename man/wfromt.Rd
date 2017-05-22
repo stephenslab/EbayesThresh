@@ -19,8 +19,7 @@ wfromt(tt, s, prior = "laplace", a = 0.5)
   \code{tt}. Ignored if Cauchy prior is used.}
 
   \item{prior}{Specification of prior to be used; can be
-    \eqn{\code{"cauchy"}}{"cauchy"} or
-    \eqn{\code{"laplace"}}{"laplace"}.}
+    \code{"cauchy"} or \code{"laplace"}.}
   
   \item{a}{Scale factor if Laplace prior is used. Ignored if Cauchy
     prior is used.}

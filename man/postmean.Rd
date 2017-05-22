@@ -20,9 +20,8 @@ postmean(x, s, w, prior = "laplace", a = 0.5)
   \item{w}{The value of the prior probability that the signal is
   nonzero.}
  
-  \item{prior}{ family of the nonzero part of the prior; can be
-    \eqn{\code{"cauchy"}}{"cauchy"} or
-    \eqn{\code{"laplace"}}{"laplace"}.}
+  \item{prior}{Family of the nonzero part of the prior; can be
+    \code{"cauchy"} or \code{"laplace"}.}
   
   \item{a}{The scale parameter of the nonzero part of the prior if the
     Laplace prior is used.}

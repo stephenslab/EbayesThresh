@@ -33,9 +33,10 @@ zetafromx(xd, cs, pilo = NA, prior = "laplace", a = 0.5)
     will be used.}
 }
 \details{
+  
 An exact algorithm is used, based on splitting the range up for
-\eqn{\zeta} into subintervals over which no element of
-\eqn{\zeta*\code{cs}} crosses either \code{pilo} or 1.
+\code{zeta} into subintervals over which no element of \code{zeta*cs}
+crosses either \code{pilo} or 1.
 
 Within each of these subintervals, the log likelihood is concave and its
 maximum can be found to arbitrary accuracy; first the derivatives at

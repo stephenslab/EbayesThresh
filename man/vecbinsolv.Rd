@@ -18,19 +18,18 @@ vecbinsolv(zf, fun, tlo, thi, nits = 30, \dots)
 \details{
 If \code{fun} is a scalar monotone function, the routine finds a vector
 \code{t} the same length as \code{zf} such that, component-wise,
-\eqn{\code{fun(t) = zf}}{fun(t) = zf}, where this is possible within the
-interval \eqn{\code{(tlo,thi)}}{(tlo, thi)}. The relevant value
-returned is the nearer extreme to the solution if there is no solution
-in the specified range for any particular component of \code{zf}. The
-routine will also work if \code{fun} is a vector of monotone functions,
-allowing different functions to be considered for different components.
-The interval over which the search is conducted has to be the same for
-each component.
+\eqn{fun(t) = zf}, where this is possible within the interval
+\eqn{\code{(tlo,thi)}}{(tlo, thi)}. The relevant value returned is the
+nearer extreme to the solution if there is no solution in the specified
+range for any particular component of \code{zf}. The routine will also
+work if \code{fun} is a vector of monotone functions, allowing different
+functions to be considered for different components.  The interval over
+which the search is conducted has to be the same for each component.
 
 The accuracy of the solution is determined by the number of binary
-subdivisions; if \eqn{\code{nits=30}}{nits=30} then the solution(s) will
+subdivisions; if \code{nits=30} then the solution(s) will
 be accurate to about 9 orders of magnitude less than the length of the
-original interval \eqn{\code{(tlo, thi)}}{(tlo,thi)}.
+original interval \eqn{(tlo, thi)}.
 }
 \references{See \code{\link{ebayesthresh}} and
   \url{http://www.bernardsilverman.com}} 

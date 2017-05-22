@@ -23,7 +23,7 @@ postmed(x, s, w, prior = "laplace", a = 0.5)
     nonzero.}
   
   \item{prior}{Family of the nonzero part of the prior; can be
-    \eqn{\code{"cauchy"}}{"cauchy"} or \eqn{\code{"laplace"}}{"laplace"}.}
+    \code{"cauchy"} or \code{"laplace"}.}
   
   \item{a}{The scale parameter of the nonzero part of the prior if the
     Laplace prior is used.}
