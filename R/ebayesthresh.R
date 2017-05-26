@@ -1,6 +1,6 @@
 ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
                           sdev = NA, verbose = FALSE, threshrule = "median",
-                          universalthresh = TRUE, stabadjustment = FALSE) {
+                          universalthresh = TRUE, stabadjustment) {
 #  
 #  Given a vector of data x, find the marginal maximum likelihood
 #  estimator of the mixing weight w, and apply an appropriate
@@ -39,19 +39,25 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
     
   # Find the standard deviation if necessary and estimate the parameters
   pr <- substring(prior, 1, 1)
-  
+
   if(length(sdev) == 1) {
+      if(!missing(stabadjustment))
+        stop("Argument stabadjustment is not applicable when variances are homogeneous.")
       if(is.na(sdev)) {
           sdev <- mad(x, center = 0)
       }
+      stabadjustment_condition = TRUE
   } else{
     if(pr == "c")
-      stop("Standard deviation has to be homogeneous for Cauchy prior")
+      stop("Standard deviation has to be homogeneous for Cauchy prior.")
     if(length(sdev) != length(x))
       stop(paste("Standard deviation has to be homogeneous or has the",
                  "same length as observations."))
+    if(missing(stabadjustment))
+      stabadjustment <- FALSE
+    stabadjustment_condition = stabadjustment
   }
-  stabadjustment_condition = (length(sdev) == 1) | stabadjustment
+  
   if (stabadjustment_condition) {
     m_sdev <- mean(sdev)
     s <- sdev/m_sdev

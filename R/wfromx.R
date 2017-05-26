@@ -1,4 +1,4 @@
-wfromx <- function (x, s, prior = "laplace", a = 0.5,
+wfromx <- function (x, s = 1, prior = "laplace", a = 0.5,
                     universalthresh = TRUE) {
 #    
 #  Given the vector of data x and s (sd),

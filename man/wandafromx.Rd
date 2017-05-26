@@ -8,7 +8,7 @@ deviations, find the marginal maximum likelihood choice of both weight
 and scale factor under the Laplace prior.
 }
 \usage{
-wandafromx(x, s, universalthresh = TRUE)
+wandafromx(x, s = 1, universalthresh = TRUE)
 }
 \arguments{
   \item{x}{A vector of data.}

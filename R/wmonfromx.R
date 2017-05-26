@@ -11,10 +11,10 @@ wmonfromx <- function (xd, prior = "laplace", a = 0.5,
 #
 	pr <- substring(prior, 1, 1)
 	nx <- length(xd)
-	wmin <- wfromt(sqrt(2 * log(length(xd))), s=1, prior, a)
+	wmin <- wfromt(sqrt(2 * log(length(xd))), prior=prior, a=a)
 	winit <- 1
 	if(pr == "l")
-	  beta <- beta.laplace(xd, a)
+	  beta <- beta.laplace(xd, a=a)
 	if(pr == "c")
            beta <- beta.cauchy(xd)
         

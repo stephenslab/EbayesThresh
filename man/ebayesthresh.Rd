@@ -8,7 +8,7 @@ as discussed in Johnstone and Silverman (2004).
 \usage{
 ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA,
 verbose = FALSE, threshrule = "median", universalthresh = TRUE,
-stabadjustment = FALSE)
+stabadjustment)
 }
 \arguments{
  \item{x}{Vector of data values.}
@@ -48,11 +48,12 @@ stabadjustment = FALSE)
 	thresholds will be upper bounded by universal threshold;
 	otherwise, the thresholds can take any non-negative values. }
  
-\item{stabadjustment}{For heterogeneous sampling standard deviation. If
+\item{stabadjustment}{If
 	\code{stabadjustment = TRUE}, the vectors of standard deviations
 	and data values will be divided by the mean of standard
 	deviations in case of inefficiency caused by large value of
-	standard deviation.}
+	standard deviation. For heterogeneous sampling standard deviation only;
+	ignored if standard deviation is homogeneous.}
 }
 \details{
 It is assumed that the data vector \eqn{(x_1, \ldots, x_n)} is such that

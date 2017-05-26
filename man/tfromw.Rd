@@ -8,7 +8,7 @@
 probabilities that the parameter is nonzero) and sampling standard
 deviations (sd equals 1 for Cauchy prior), find the corresponding
 threshold(s) under the specified prior.}
-\usage{tfromw(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5)}
+\usage{tfromw(w, s = 1, prior = "laplace", bayesfac = FALSE, a = 0.5)}
 \arguments{
   \item{w}{Prior weight or vector of weights.}
   

@@ -15,9 +15,9 @@ zetafromx <- function(xd, cs, pilo = NA, prior = "laplace", a = 0.5) {
 	pr <- substring(prior, 1, 1)
 	nx <- length(xd)
 	if (is.na(pilo))
-          pilo <- wfromt(sqrt(2 * log(length(xd))), s=1, prior, a)
+          pilo <- wfromt(sqrt(2 * log(length(xd))), prior=prior, a=a)
 	if(pr == "l")
-	  beta <- beta.laplace(xd, s=1, a)
+	  beta <- beta.laplace(xd, a=a)
 	if(pr == "c") beta <- beta.cauchy(xd)
 #
 #  Find jump points zj in derivative of log likelihood as function

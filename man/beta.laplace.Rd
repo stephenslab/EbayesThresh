@@ -11,7 +11,7 @@ is the convolution of the Laplace density with scale parameter \eqn{a},
 \eqn{fn(x;\mu,s)}{fn(x;mu,s)} with mean \eqn{mu} and standard deviation
 \eqn{s}.
 }
-\usage{beta.laplace(x, s, a = 0.5)}
+\usage{beta.laplace(x, s = 1, a = 0.5)}
 \arguments{
   \item{x}{the value or vector of data values}
   
