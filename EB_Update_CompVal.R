@@ -1,4 +1,4 @@
-devtools::load_all('/Users/KanXu/Git/EbayesThresh/R')
+devtools::load_all('R')
 options(digits=12)
 
 printres <- function(par_vec){
