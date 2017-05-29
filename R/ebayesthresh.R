@@ -82,7 +82,7 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 	if(threshrule == "median")
 		muhat <- postmed(x, s, w, prior = prior, a = a)
 	if(threshrule == "mean")
-                muhat <- postmean(x, s, w, prior = prior, a = a)
+    muhat <- postmean(x, s, w, prior = prior, a = a)
 	if(threshrule == "hard")
 		muhat <- threshld(x, tt)
 	if(threshrule == "soft")
