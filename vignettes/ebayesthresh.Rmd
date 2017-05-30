@@ -1,0 +1,48 @@
+---
+title: "Add descriptive title here"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Add descriptive title here}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+*Give short (1 paragraph) overview of vignette, e.g., This vignette
+demonstrates how to use the function `prcomp` to compute principal
+components of a data set (the Iris data), and gives an example of a
+plot that can easily be created from the PCA results.*
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = TRUE,comment = "#",fig.width = 5,
+                      fig.height = 4,fig.align = "center",
+                      fig.cap = "&nbsp;")
+```
+
+Begin by loading these packages into your R environment. 
+
+```{r, message = FALSE}
+library(EbayesThresh)
+library(ggplot2)
+```
+
+## Load the data
+
+Load the Iris data.
+
+```{r}
+data(iris)
+```
+
+Compute principal components using `prcomp`.
+
+```{r}
+out.pca <- prcomp(iris[1:4])
+```
+
+## Create visualizations of the Iris PCA results
+
+```{r}
+plot(out.pca,type = "lines")
+```
+
