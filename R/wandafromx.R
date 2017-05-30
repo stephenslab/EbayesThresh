@@ -1,4 +1,4 @@
-wandafromx <- function(x, s, universalthresh = TRUE) {
+wandafromx <- function(x, s = 1, universalthresh = TRUE) {
 #
 #  Find the marginal max lik estimators of w and a given standard
 #   deviation s, using a bivariate optimization;

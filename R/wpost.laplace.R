@@ -1,4 +1,4 @@
-wpost.laplace <- function(w, x, s, a)
+wpost.laplace <- function(w, x, s = 1, a = 0.5)
 #
 #  Calculate the posterior weight for non-zero effect
 #

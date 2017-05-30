@@ -1,4 +1,4 @@
-tfromx <- function (x, s, prior = "laplace", bayesfac = FALSE, a = 0.5,
+tfromx <- function (x, s = 1, prior = "laplace", bayesfac = FALSE, a = 0.5,
                     universalthresh = TRUE) {
 #
 #  Given the data x, the prior, and any other parameters, find the

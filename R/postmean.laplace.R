@@ -1,4 +1,4 @@
-postmean.laplace <- function(x, s, w, a = 0.5) {
+postmean.laplace <- function(x, s = 1, w = 0.5, a = 0.5) {
 #
 #  Find the posterior mean for the double exponential prior for 
 #   given x, s (sd), w and a.

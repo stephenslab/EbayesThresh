@@ -8,7 +8,7 @@ standard deviations (sd equals 1 for Cauchy prior), find the
 corresponding posterior mean estimate(s) of the underlying signal
 value(s).}
 \usage{
-postmean(x, s, w, prior = "laplace", a = 0.5)
+postmean(x, s, w = 0.5, prior = "laplace", a = 0.5)
 }
 \arguments{
   \item{x}{A data value or a vector of data.}

@@ -10,7 +10,7 @@
   posterior median estimate(s) of the underlying signal value(s).
 }
 \usage{
-postmed(x, s, w, prior = "laplace", a = 0.5)
+postmed(x, s, w = 0.5, prior = "laplace", a = 0.5)
 }
 \arguments{
   \item{x}{A data value or a vector of data.}

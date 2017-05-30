@@ -9,7 +9,7 @@ vector of threshold values is provided, the vector of corresponding
 weights is returned.
 }
 \usage{
-wfromt(tt, s, prior = "laplace", a = 0.5)
+wfromt(tt, s = 1, prior = "laplace", a = 0.5)
 }
 \arguments{
   \item{tt}{Threshold value or vector of values.}

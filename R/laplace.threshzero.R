@@ -1,4 +1,4 @@
-laplace.threshzero <- function(x, s, w, a = 0.5) {
+laplace.threshzero <- function(x, s = 1, w = 0.5, a = 0.5) {
 #
 # The function that has to be zeroed to find the threshold with the
 # Laplace prior.  Only allow a < 20 for input value.

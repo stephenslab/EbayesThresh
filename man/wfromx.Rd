@@ -12,7 +12,7 @@ This routine finds the marginal maximum likelihood estimate of the
 parameter \eqn{w}.
 }
 \usage{
-wfromx(x, s, prior = "laplace", a = 0.5, universalthresh = TRUE)
+wfromx(x, s = 1, prior = "laplace", a = 0.5, universalthresh = TRUE)
 }
 \arguments{
   \item{x}{Vector of data.}

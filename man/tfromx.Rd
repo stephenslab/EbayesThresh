@@ -8,7 +8,7 @@ deviation with Laplace prior) of thresholds corresponding to the
 marginal maximum likelihood choice of weight.
 }
 \usage{
-  tfromx(x, s, prior = "laplace", bayesfac = FALSE, a = 0.5,
+  tfromx(x, s = 1, prior = "laplace", bayesfac = FALSE, a = 0.5,
          universalthresh = TRUE)
 }
 \arguments{

@@ -1,4 +1,4 @@
-tfromw <- function(w, s, prior = "laplace", bayesfac = FALSE, a = 0.5) {
+tfromw <- function(w, s = 1, prior = "laplace", bayesfac = FALSE, a = 0.5) {
 #
 #  Given the vector of weights w and s (sd), find the threshold or
 #   vector of thresholds corresponding to these weights, under the
