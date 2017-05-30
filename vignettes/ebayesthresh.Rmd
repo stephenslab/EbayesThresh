@@ -22,8 +22,8 @@ knitr::opts_chunk$set(collapse = TRUE,comment = "#",fig.width = 5,
 Begin by loading these packages into your R environment. 
 
 ```{r, message = FALSE}
+library(stats)
 library(EbayesThresh)
-library(ggplot2)
 ```
 
 ## Load the data
