@@ -34,6 +34,8 @@ test_that("postmed recovers result from v1.3.2 package when s=1 and w=0.5",{
 })
 
 # ----------------------------------------------------------------------
+# Note: the failure of this test at y=25.5 is due to a refinement of
+# the search domain of threshold.
 test_that("tfromw recovers result from v1.3.2 package when s=1",{
   w <- seq(0, 0.8, 0.2)
   y <- c(25.4999999881256,
@@ -44,13 +46,11 @@ test_that("tfromw recovers result from v1.3.2 package when s=1",{
   expect_equal(tfromw(w),y,tolerance = 1e-6)
 })
 
-# Note: the failure of this test is due to a refinement of the search
-# domain of threshold.
 # ----------------------------------------------------------------------
 test_that("tfromx recovers result from v1.3.2 package when s=1",{
   set.seed(123)
   x <- rnorm(100)
-  y <- 3.034854270285
+  y <- 3.03485425655
   expect_equal(tfromx(x),y,tolerance = 1e-6)
 })
 
@@ -75,8 +75,8 @@ test_that("wfromx recovers result from v1.3.2 package when s=1",{
 # ----------------------------------------------------------------------
 test_that("wandafromx recovers result from v1.3.2 package when s=1",{
   set.seed(123)
-  x = rnorm(100)
-  y <- list(w=+0.371583145802847,a=+3)
+  x <- rnorm(100)
+  y <- list(w = 0.371583145802847,a = 3)
   expect_equal(wandafromx(x),y,tolerance = 1e-6)
 })
 
