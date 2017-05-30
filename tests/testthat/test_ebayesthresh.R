@@ -34,12 +34,12 @@ test_that("postmed recovers result from v1.3.2 package when s=1 and w=0.5",{
 })
 
 # ----------------------------------------------------------------------
-# Note: the failure of this test at y=25.5 is due to a refinement of
-# the search domain of threshold.
+# Note that tfromw(x) is expected to give different values for large
+# values of x (e.g., x = 25.5) due to an changes in the search domain
+# for the threshold.
 test_that("tfromw recovers result from v1.3.2 package when s=1",{
-  w <- seq(0, 0.8, 0.2)
-  y <- c(25.4999999881256,
-         2.44873377378099,
+  w <- c(0.2,0.4,0.6,0.8)
+  y <- c(2.44873377378099,
          1.92279064818285,
          1.4095618778374,
          0.767900782870129)
