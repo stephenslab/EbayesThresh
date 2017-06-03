@@ -1,9 +1,5 @@
-<<<<<<< HEAD:tests/EB_Update_CompVal.R
 install.packages("EbayesThresh")
 library(EbayesThresh)
-=======
-devtools::load_all('R')
->>>>>>> origin/ET_Upgrade_Apr_1st:EB_Update_CompVal.R
 options(digits=12)
 
 printres <- function(par_vec){
