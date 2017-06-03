@@ -42,7 +42,8 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 
   if(length(sdev) == 1) {
       if(!missing(stabadjustment))
-        stop("Argument stabadjustment is not applicable when variances are homogeneous.")
+        stop(paste("Argument stabadjustment is not applicable when",
+                   "variances are homogeneous."))
       if(is.na(sdev)) {
           sdev <- mad(x, center = 0)
       }

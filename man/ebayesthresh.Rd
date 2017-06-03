@@ -6,8 +6,8 @@ Given a sequence of data, performs Empirical Bayes thresholding,
 as discussed in Johnstone and Silverman (2004). 
 }
 \usage{
-ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, sdev = NA,
-verbose = FALSE, threshrule = "median", universalthresh = TRUE,
+ebayesthresh(x, prior = "laplace", a = 0.5, bayesfac = FALSE, 
+sdev = NA, verbose = FALSE, threshrule = "median", universalthresh = TRUE,
 stabadjustment)
 }
 \arguments{
@@ -137,14 +137,43 @@ references, including the draft of a monograph by I. M. Johnstone.
 \seealso{\code{\link{tfromx}}, \code{\link{threshld}}}
 \examples{
 
-# Data with homogeneous sampling standard deviation.
+# Data with homogeneous sampling standard deviation using 
+Cauchy prior
 ebayesthresh(x = rnorm(100, c(rep(0,90),rep(5,10))),
              prior="cauchy", sdev = NA)
 
-# Data with heterogeneous sampling standard deviation.
-sd = c(rep(2, 10), rep(1, 90))
-ebayesthresh(x = rnorm(100, c(rep(0,90), rep(5,10)), sd),
-             prior = "laplace", sdev = sd)
+# Data with homogeneous sampling standard deviation using 
+Laplace prior
+ebayesthresh(x = rnorm(100, c(rep(0,90), rep(5,10))),
+             prior = "laplace", sdev = 1)
+             
+# Data with heterogeneous sampling standard deviation using 
+Laplace prior
+set.seed(123)
+mu = c(rep(0,90), rep(5,10))
+sd = c(rep(1, 40), rep(3, 60))
+x = mu + rnorm(100, sd = sd)
+# w/ constraints on thresholds
+ebayesthresh(x = x, prior = "laplace", a=NA, sdev = sd)
+# w/o constraints on thresholds
+ebayesthresh(x = x, prior = "laplace", a=NA, sdev = sd, universalthresh=FALSE)
+# The estimates w/ constraints on thresholds have fewer 
+zeroes than the estimates w/o constraints.
+
+# Data with heterogeneous sampling standard deviation using 
+Laplace prior
+set.seed(123)
+mu = c(rep(0,90), rep(5,10))
+sd = c(rep(1, 40), rep(15, 60))
+x = mu + rnorm(100, sd = sd)
+# w/o stabilization
+ebayesthresh(x = x, prior = "laplace", a=NA, sdev = sd)
+# w/ stabilization
+ebayesthresh(x = x, prior = "laplace", a=NA, sdev = sd, stabadjustment=TRUE)
+# In this example, infinity is returned as estimate when some 
+of the sampling standard deviations are extremely large. 
+However, this can be solved by stabilizing the data 
+sequence before the analysis. 
 
 }
 \keyword{nonparametric}

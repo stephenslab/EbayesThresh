@@ -7,7 +7,9 @@ postmean <- function(x, s = 1, w = 0.5, prior = "laplace", a = 0.5) {
 	if(pr == "l")
 		mutilde <- postmean.laplace(x, s, w, a = a)
 	if(pr == "c"){
-	  if(any(s != 1)) stop("Only standard deviation of 1 is allowed for Cauchy prior.")
+            if(any(s != 1))
+                stop(paste("Only standard deviation of 1 is allowed",
+                           "for Cauchy prior."))
 		mutilde <- postmean.cauchy(x, w)
 	}
 	return(mutilde)
