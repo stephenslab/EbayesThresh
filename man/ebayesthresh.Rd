@@ -139,12 +139,12 @@ references, including the draft of a monograph by I. M. Johnstone.
 
 # Data with homogeneous sampling standard deviation using 
 # Cauchy prior.
-ebt1 <- ebayesthresh(x = rnorm(100, c(rep(0,90),rep(5,10))),
+eb1 <- ebayesthresh(x = rnorm(100, c(rep(0,90),rep(5,10))),
                      prior = "cauchy", sdev = NA)
 
 # Data with homogeneous sampling standard deviation using 
 # Laplace prior.
-ebt2 <- ebayesthresh(x = rnorm(100, c(rep(0,90), rep(5,10))),
+eb2 <- ebayesthresh(x = rnorm(100, c(rep(0,90), rep(5,10))),
                      prior = "laplace", sdev = 1)
              
 # Data with heterogeneous sampling standard deviation using 
@@ -155,15 +155,15 @@ sd <- c(rep(1, 40), rep(3, 60))
 x  <- mu + rnorm(100, sd = sd)
 
 # With constraints on thresholds.
-ebt3 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd)
+eb3 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd)
 
 # Without constraints on thresholds. Observe that the estimates with
 # constraints on thresholds have fewer zeroes than the estimates without
 # constraints.
-ebt4 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd,
+eb4 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd,
                      universalthresh = FALSE)
-print(sum(ebt3 == 0))
-print(sum(ebt4 == 0))
+print(sum(eb3 == 0))
+print(sum(eb4 == 0))
 
 # Data with heterogeneous sampling standard deviation using Laplace
 # prior.
