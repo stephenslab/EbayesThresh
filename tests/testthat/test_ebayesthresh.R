@@ -49,7 +49,7 @@ test_that("tfromw recovers result from v1.3.2 package when s=1",{
 # ----------------------------------------------------------------------
 test_that("tfromx recovers result from v1.3.2 package when s=1",{
   set.seed(123)
-  x = rnorm(100)
+  x <- rnorm(100)
   y <- c(+3.03485425654799)
   expect_equal(tfromx(x),y,tolerance = 1e-6)
 })
@@ -117,19 +117,14 @@ test_that("ebayesthresh recovers result from v1.3.2 when s=1 (2nd test)",{
 })
 
 # ----------------------------------------------------------------------
-test_that("ebayesthresh returns the same result with sdev=1 and sdev=rep(1, n) (3rd test)",{
+test_that(paste("ebayesthresh returns the same result with sdev=1",
+                "and sdev=rep(1, n) (3rd test)"),{
   set.seed(120)
-  mu = c(rep(0, 50), rnorm(50, sd=2))
-  x = mu + rnorm(100)
-  y <- c(0,0,0,0,0,0,0,0,0,0,0,0,-1.04121693067389,0,0,0,0,0,0,0,0,0,0,
-         -1.35978570570315,0,0,-0.240101857101125,0,0,0,0,0,0,0,0,0,0,0,
-         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3.83090910100726,0.0712822438458154,
-         0,-3.59696604125997,3.86540675250451,0.0897481774495907,0,0,0,0,
-         -3.41370542189694,0,0,3.49859567543283,0,0,-1.81030820004674,
-         3.71037602480949,0,0,0,2.81312247449243,0,0,0,-2.00442016176308,
-         -4.6661776361885,0,0,1.67416061651496,0,0,-1.53846644772252,0,
-         5.8288454853458,0,0,0,0,0,0,3.00394257291387,0,0,-2.26047995381615,0,0)
-  expect_equal(ebayesthresh(x, sdev = rep(1, 100)),y,tolerance = 1e-6)
+  mu <- c(rep(0, 50), rnorm(50, sd=2))
+  x  <- mu + rnorm(100)
+  expect_equal(ebayesthresh(x, sdev = rep(1,100)),
+               ebayesthresh(x, sdev = 1),
+               tolerance = 1e-6)
 })
 
 # ----------------------------------------------------------------------
