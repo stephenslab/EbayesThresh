@@ -139,46 +139,47 @@ references, including the draft of a monograph by I. M. Johnstone.
 
 # Data with homogeneous sampling standard deviation using 
 # Cauchy prior.
-ebayesthresh(x = rnorm(100, c(rep(0,90),rep(5,10))),
-             prior="cauchy", sdev = NA)
+ebt1 <- ebayesthresh(x = rnorm(100, c(rep(0,90),rep(5,10))),
+                     prior = "cauchy", sdev = NA)
 
 # Data with homogeneous sampling standard deviation using 
 # Laplace prior.
-ebayesthresh(x = rnorm(100, c(rep(0,90), rep(5,10))),
-             prior = "laplace", sdev = 1)
+ebt2 <- ebayesthresh(x = rnorm(100, c(rep(0,90), rep(5,10))),
+                     prior = "laplace", sdev = 1)
              
 # Data with heterogeneous sampling standard deviation using 
 # Laplace prior.
 set.seed(123)
-mu = c(rep(0,90), rep(5,10))
-sd = c(rep(1, 40), rep(3, 60))
-x  = mu + rnorm(100, sd = sd)
+mu <- c(rep(0,90), rep(5,10))
+sd <- c(rep(1, 40), rep(3, 60))
+x  <- mu + rnorm(100, sd = sd)
 
 # With constraints on thresholds.
-ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd)
+ebt3 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd)
 
 # Without constraints on thresholds. Observe that the estimates with
 # constraints on thresholds have fewer zeroes than the estimates without
 # constraints.
-ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd,
-             universalthresh = FALSE)
-
+ebt4 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd,
+                     universalthresh = FALSE)
+print(sum(ebt3 == 0))
+print(sum(ebt4 == 0))
 
 # Data with heterogeneous sampling standard deviation using Laplace
 # prior.
 set.seed(123)
-mu = c(rep(0,90), rep(5,10))
-sd = c(rep(1, 40), rep(15, 60))
-x  = mu + rnorm(100, sd = sd)
+mu <- c(rep(0,90), rep(5,10))
+sd <- c(rep(1, 40), rep(15, 60))
+x  <- mu + rnorm(100, sd = sd)
 
 # In this example, infinity is returned as estimate when some of the
 # sampling standard deviations are extremely large. However, this can
 # be solved by stabilizing the data sequence before the analysis.
-ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd)
+eb5 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd)
 
 # With stabilization.
-ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd,
-             stabadjustment = TRUE)
+eb6 <- ebayesthresh(x = x, prior = "laplace", a = NA, sdev = sd,
+                    stabadjustment = TRUE)
 
 }
 \keyword{nonparametric}
