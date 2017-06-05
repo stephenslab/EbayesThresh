@@ -1,4 +1,7 @@
-^README.md$
+^README\.md$
 ^LICENSE$
-^appveyor.yml$
-^.travis.yml$
+^appveyor\.yml$
+^\.travis\.yml$
+^EB_Update_CompVal\.R$
+^vignettes/figure$
+^vignettes/cache$

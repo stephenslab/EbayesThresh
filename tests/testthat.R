@@ -1,5 +1,3 @@
 library(testthat)
-library(devtools)
-install_github("stephenslab/EbayesThresh", ref = "ET_Upgrade_Apr_1st")
 library(EbayesThresh)
 test_check("EbayesThresh")
