@@ -169,7 +169,7 @@ print(sum(ebt4 == 0))
 # prior.
 set.seed(123)
 mu <- c(rep(0,90), rep(5,10))
-sd <- c(rep(1, 40), rep(15, 60))
+sd <- c(rep(1, 40), rep(5,40), rep(15, 20))
 x  <- mu + rnorm(100, sd = sd)
 
 # In this example, infinity is returned as estimate when some of the
