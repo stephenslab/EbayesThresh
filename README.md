@@ -19,9 +19,26 @@ warranty**; without even the implied warranty of **merchantability or
 fitness for a particular purpose**. See file [LICENSE](LICENSE) for
 the full text of the license.
 
-## Quick start
+## Quick Start
 
-*Add instructions here.*
+Currently, it is recommended to install the latest version of the
+`master` branch from the Github repository. The simplest way to do
+this is using the `devtools` package:
+
+```R
+library(devtools)
+install_github("stephenslab/ebayesthresh")
+```
+
+Alternatively, if you have cloned the git repository on your local
+computer, you can run these commands in the shell:
+
+```bash
+R CMD build EbayesThresh
+R CMD INSTALL EbayesThresh_1.4-8.tar.gz
+```
+
+*Add more steps to Quick Start here.*
 
 ## What's included
 
