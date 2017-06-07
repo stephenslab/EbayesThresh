@@ -3,5 +3,4 @@
 ^appveyor\.yml$
 ^\.travis\.yml$
 ^EB_Update_CompVal\.R$
-^vignettes/figure$
-^vignettes/cache$
+^vignettes/ebayesthresh\.html$
