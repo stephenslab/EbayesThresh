@@ -40,6 +40,8 @@ R CMD INSTALL EbayesThresh_1.4-9.tar.gz
 
 *Add more steps to Quick Start here.*
 
+Walk through the [vignette](vignettes/ebayesthresh.html).
+
 ## What's included
 
 This is the current structure of the R package:
