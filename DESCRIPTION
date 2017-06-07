@@ -2,7 +2,7 @@ Package: EbayesThresh
 Encoding: UTF-8
 Type: Package
 Title: Empirical Bayes Thresholding and Related Methods
-Version: 1.4-8
+Version: 1.4-9
 Date: 2017-06-05
 Authors@R: c(person("Bernard W.","Silverman",role="aut"),
              person("Ludger","Evers",role=c("aut","cre"),
@@ -23,7 +23,7 @@ Description: Empirical Bayes thresholding using the methods developed
     Extensions of the basic method, in particular to wavelet
     thresholding, are also implemented within the package.
 Imports: stats, wavethresh
-Suggests: testthat, knitr
+Suggests: testthat, knitr, dplyr, ggplot2
 NeedsCompilation: no
 License: GPL (>= 2)
 VignetteBuilder: knitr
