@@ -35,7 +35,7 @@ computer, you can run these commands in the shell:
 
 ```bash
 R CMD build EbayesThresh
-R CMD INSTALL EbayesThresh_1.4-8.tar.gz
+R CMD INSTALL EbayesThresh_1.4-9.tar.gz
 ```
 
 *Add more steps to Quick Start here.*
