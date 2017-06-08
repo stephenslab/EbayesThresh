@@ -26,7 +26,7 @@ Install the [latest release]() of the EbayesThresh package using
 
 ```R
 library(devtools)
-install_github()
+install_github("stephenslab/EbayesThresh@v1.4-10")
 ```
 
 Load EbayesThresh into your R environment, and get an overview of the
