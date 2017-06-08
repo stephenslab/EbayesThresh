@@ -21,26 +21,29 @@ the full text of the license.
 
 ## Quick Start
 
-Currently, it is recommended to install the latest version of the
-`master` branch from the Github repository. The simplest way to do
-this is using the `devtools` package:
+Install the [latest release]() of the EbayesThresh package using
+`devtools`:
 
 ```R
 library(devtools)
-install_github("stephenslab/ebayesthresh")
+install_github()
 ```
 
-Alternatively, if you have cloned the git repository on your local
-computer, you can run these commands in the shell:
+Load EbayesThresh into your R environment, and get an overview of the
+package:
 
-```bash
-R CMD build EbayesThresh
-R CMD INSTALL EbayesThresh_1.4-9.tar.gz
+```R
+library(EbayesThresh)
+help(package = EbayesThresh)
 ```
 
-*Add more steps to Quick Start here.*
+Explore the EbayesThresh vignette, either
+[on the Web](vignettes/ebayesthresh.html),
+or in R:
 
-Walk through the [vignette](vignettes/ebayesthresh.html).
+```R
+vignette("ebayesthresh")
+```
 
 ## What's included
 
@@ -48,12 +51,19 @@ This is the current structure of the R package:
 
 ```bash
 ├── DESCRIPTION
+├── LICENSE
 ├── NAMESPACE
 ├── R
 ├── README.md
 ├── inst
 │   └── kan-xu-thesis.pdf
-└── man
+├── man
+├── tests
+│   ├── testthat
+│   └── testthat.R
+└── vignettes
+    ├── ebayesthresh.Rmd
+    └── ebayesthresh.html
 ```
 
 ## Credits 
