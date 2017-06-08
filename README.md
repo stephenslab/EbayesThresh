@@ -39,7 +39,7 @@ help(package = EbayesThresh)
 ```
 
 Explore the EbayesThresh vignette, either
-[on the Web](vignettes/ebayesthresh.html),
+[on the Web][vignette],
 or in R:
 
 ```R
@@ -72,3 +72,5 @@ The *EbayesThresh* software package was originally developed by
 Bernard W. Silverman and Ludger Evers, with extensions introduced by
 Kan Xu, Peter Carbonetto and Matthew Stephens in the Department of
 Statistics at the University of Chicago.
+
+[vignette]: https://stephenslab.github.io/EbayesThresh/vignettes/ebayesthresh.html
