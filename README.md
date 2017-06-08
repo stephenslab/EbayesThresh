@@ -63,8 +63,7 @@ This is the current structure of the R package:
 │   ├── testthat
 │   └── testthat.R
 └── vignettes
-    ├── ebayesthresh.Rmd
-    └── ebayesthresh.html
+    └── ebayesthresh.Rmd
 ```
 
 ## Credits 
