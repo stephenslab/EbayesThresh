@@ -26,7 +26,7 @@ Description: Empirical Bayes thresholding using the methods developed
     Extensions of the basic method, in particular to wavelet
     thresholding, are also implemented within the package.
 Imports: stats, wavethresh
-Suggests: testthat, knitr, dplyr, ggplot2
+Suggests: testthat, knitr, rmarkdown, dplyr, ggplot2
 NeedsCompilation: no
 License: GPL (>= 2)
 VignetteBuilder: knitr
