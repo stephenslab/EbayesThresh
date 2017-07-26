@@ -5,10 +5,11 @@ Title: Empirical Bayes Thresholding and Related Methods
 Version: 1.4-10
 Date: 2017-07-26
 Authors@R: c(person("Bernard W.","Silverman",role="aut"),
-             person("Ludger","Evers",role=c("aut","cre"),
+             person("Ludger","Evers",role="aut",
 	            email = "ludger@stats.gla.ac.uk"),
              person("Kan","Xu",role="aut"),
-	     person("Peter","Carbonetto",role="aut"),
+	     person("Peter","Carbonetto",role=c("aut","cre"),
+	            email = "peter.carbonetto@gmail.com"),
 	     person("Matthew","Stephens",role="aut"))
 URL: https://github.com/stephenslab/EbayesThresh
 BugReports: https://github.com/stephenslab/EbayesThresh/issues
