@@ -2,5 +2,5 @@
 ^LICENSE$
 ^appveyor\.yml$
 ^\.travis\.yml$
-^EB_Update_CompVal\.R$
+^inst/EB_Update_CompVal\.R$
 ^vignettes/ebayesthresh\.html$
