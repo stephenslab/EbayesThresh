@@ -31,7 +31,7 @@ cauchy.medzero(x, z, w)
   \item{a}{The scale parameter of the nonzero part of the prior if the
     Laplace prior is used.}
 
-  \item{z is the data vector (or scalar) provided as input to
+  \item{z}{The data vector (or scalar) provided as input to
     \code{cauchy.medzero}.}
 }
 \value{

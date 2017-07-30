@@ -16,6 +16,9 @@ threshold(s) under the specified prior.}
   cauchy.threshzero(z, w)
 }
 \arguments{
+  \item{x}{Parameter value passed to \code{laplace.threshzero} objective
+    function.}
+  
   \item{w}{Prior weight or vector of weights.}
   
   \item{s}{A single value or a vector of standard deviations if the
