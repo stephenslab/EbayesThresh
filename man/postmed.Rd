@@ -13,7 +13,7 @@
 postmed(x, s, w = 0.5, prior = "laplace", a = 0.5)
 postmed.laplace(x, s = 1, w = 0.5, a = 0.5)
 postmed.cauchy(x, w)
-cauchy.medzero(x,z,w)
+cauchy.medzero(x, z, w)
 }
 \arguments{
   \item{x}{A data value or a vector of data.}
@@ -30,6 +30,9 @@ cauchy.medzero(x,z,w)
   
   \item{a}{The scale parameter of the nonzero part of the prior if the
     Laplace prior is used.}
+
+  \item{z is the data vector (or scalar) provided as input to
+    \code{cauchy.medzero}.}
 }
 \value{
 If \eqn{x} is a scalar, the posterior median

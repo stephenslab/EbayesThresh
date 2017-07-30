@@ -20,6 +20,18 @@ negloglik.laplace(xpar, xx, ss, tlo, thi)
   \item{universalthresh}{If \code{universalthresh = TRUE}, the thresholds
 	will be upper bounded by universal threshold; otherwise, the
 	thresholds can take any non-negative values.}
+
+  \item{xx}{A vector of data.}
+      
+  \item{xpar}{Vector of two parameters: \code{xpar[1]} : a value between
+      0 and 1, which will be adjusted to range of w; \code{xpar[2]}, 
+      scale factor "a".}
+
+  \item{ss}{Vector of standard deviations.}
+
+  \item{tlo}{Lower bound of thresholds.}
+
+  \item{thi}{Upper bound of thresholds.}
 }
 \details{
 The parameters are found by marginal maximum likelihood.

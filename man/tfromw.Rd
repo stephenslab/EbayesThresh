@@ -30,6 +30,8 @@ threshold(s) under the specified prior.}
   
   \item{a}{Scale factor if Laplace prior is used. Ignored if Cauchy
     prior is used.}
+
+  \item{z}{The putative threshold vector for \code{cauchy.threshzero}.}
 }
 \details{
 The Bayes factor method uses a threshold such that the posterior

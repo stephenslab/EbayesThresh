@@ -31,7 +31,11 @@ ebayesthresh.wavelet.splus(x.dwt, vscale = "independent", smooth.levels = Inf,
 	is obtained using one of the wavelet transform routines in \R or
 	in S+WAVELETS. Any choice of wavelet, boundary condition, etc
 	provided by these routines can be used.}
-      
+
+  \item{x.dwt}{Wavelet transform input for \code{ebayesthresh.wavelet.dwt}.}
+
+  \item{x.wd}{Wavelet transform input for \code{ebayesthresh.wavelet.wd}.}
+  
   \item{vscale}{Controls the scale used at different levels of the
 	transform. If \code{vscale} is a scalar quantity, then it will
 	be assumed that the wavelet coefficients at every level have
