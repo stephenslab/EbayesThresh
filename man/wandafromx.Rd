@@ -9,6 +9,7 @@ and scale factor under the Laplace prior.
 }
 \usage{
 wandafromx(x, s = 1, universalthresh = TRUE)
+negloglik.laplace(xpar, xx, ss, tlo, thi)
 }
 \arguments{
   \item{x}{A vector of data.}

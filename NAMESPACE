@@ -7,6 +7,26 @@ importFrom(stats,nlminb)
 importFrom(wavethresh,accessD)
 importFrom(wavethresh,putD)
 
-export(beta.cauchy,beta.laplace,ebayesthresh,ebayesthresh.wavelet,
-       postmean,postmed,tfromw,tfromx,threshld,wandafromx,wfromt,
-       wfromx,wmonfromx,zetafromx)
+export(beta.cauchy,
+       beta.laplace,
+       ebayesthresh,
+       ebayesthresh.wavelet,
+       isotone,
+       laplace.threshzero,
+       cauchy.threshzero,
+       negloglik.laplace,
+       postmean,
+       postmean.cauchy,
+       postmean.laplace,
+       postmed,
+       postmed.cauchy,
+       postmed.laplace,
+       cauchy.medzero,
+       tfromw,
+       tfromx,
+       vecbinsolv,
+       wandafromx,
+       wfromt,
+       wfromx,
+       wmonfromx,
+       zetafromx)

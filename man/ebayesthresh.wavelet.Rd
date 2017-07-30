@@ -12,6 +12,18 @@ detail coefficients in a wavelet transform.
 ebayesthresh.wavelet(xtr, vscale = "independent", smooth.levels = Inf, 
       prior = "laplace", a = 0.5, bayesfac = FALSE, 
       threshrule = "median")
+
+ebayesthresh.wavelet.dwt(x.dwt, vscale = "independent", smooth.levels = Inf, 
+      prior = "laplace", a = 0.5, bayesfac = FALSE,
+      threshrule = "median")
+
+ebayesthresh.wavelet.wd(x.wd, vscale = "independent", smooth.levels = Inf,
+      prior = "laplace", a = 0.5, bayesfac = FALSE,
+      threshrule = "median")
+
+ebayesthresh.wavelet.splus(x.dwt, vscale = "independent", smooth.levels = Inf, 
+      prior = "laplace", a = 0.5, bayesfac = FALSE,
+      threshrule = "median")
 }
 \arguments{
   

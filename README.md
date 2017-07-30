@@ -22,12 +22,12 @@ the full text of the license.
 ## Quick Start
 
 Install the [latest
-release](https://github.com/stephenslab/EbayesThresh/releases/tag/v1.4-11)
+release](https://github.com/stephenslab/EbayesThresh/releases/tag/v1.4-12)
 of the EbayesThresh package using `devtools`:
 
 ```R
 library(devtools)
-install_github("stephenslab/EbayesThresh@v1.4-11")
+install_github("stephenslab/EbayesThresh@v1.4-12")
 ```
 
 Load EbayesThresh into your R environment, and get an overview of the
