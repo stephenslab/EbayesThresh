@@ -73,4 +73,4 @@ Bernard W. Silverman and Ludger Evers, with extensions introduced by
 Kan Xu, Peter Carbonetto and Matthew Stephens in the Department of
 Statistics at the University of Chicago.
 
-[vignette]: https://stephenslab.github.io/EbayesThresh/vignettes/ebayesthresh.html
+[vignette]: https://stephenslab.github.io/EbayesThresh/docs/ebayesthresh.html
