@@ -1,11 +1,12 @@
 \name{wandafromx}
 \alias{wandafromx}
 \alias{negloglik.laplace}
-\title{Find weight and scale factor from data if Laplace prior is used.}
+\title{Find weight and inverse scale parameter from data if Laplace
+  prior is used.}
 \description{
 Given a vector of data and a single value or vector of sampling standard
 deviations, find the marginal maximum likelihood choice of both weight
-and scale factor under the Laplace prior.
+and inverse scale parameter under the Laplace prior.
 }
 \usage{
 wandafromx(x, s = 1, universalthresh = TRUE)
@@ -25,7 +26,7 @@ negloglik.laplace(xpar, xx, ss, tlo, thi)
       
   \item{xpar}{Vector of two parameters: \code{xpar[1]} : a value between
       0 and 1, which will be adjusted to range of w; \code{xpar[2]}, 
-      scale factor "a".}
+      inverse scale (\emph{i.e.}, rate) parameter \code{a}.}
 
   \item{ss}{Vector of standard deviations.}
 
@@ -45,17 +46,17 @@ deviation of data \eqn{(x_1, ... , x_n)}; otherwise, the search is over
 
 The search uses a nonlinear optimization routine (\code{\link{optim}} in
 \R) to minimize the negative log likelihood function
-\code{negloglik.laplace}.  The range over which the scale factor is
-searched is (0.04, 3).  For reasons of numerical stability within the
-optimization, the prior is parametrized internally by the threshold and
-the scale parameter.
+\code{negloglik.laplace}. The range over which the inverse scale
+parameter is searched is (0.04, 3). For reasons of numerical stability
+within the optimization, the prior is parametrized internally by the
+threshold and the inverse scale parameter.
 }
 \value{
 A list with values:
 
 \item{w}{The estimated weight.}
 
-\item{a}{The estimated scale factor.}
+\item{a}{The estimated inverse scale parameter.}
 }
 \references{See \code{\link{ebayesthresh}} and
   \url{http://www.bernardsilverman.com}}

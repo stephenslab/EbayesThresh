@@ -26,53 +26,48 @@ ebayesthresh.wavelet.splus(x.dwt, vscale = "independent", smooth.levels = Inf,
       threshrule = "median")
 }
 \arguments{
-  
-  \item{xtr}{The wavelet transform of a vector of data. The transform
-	is obtained using one of the wavelet transform routines in \R or
-	in S+WAVELETS. Any choice of wavelet, boundary condition, etc
-	provided by these routines can be used.}
+  \item{xtr}{The wavelet transform of a vector of data. The transform is
+    obtained using one of the wavelet transform routines in \R or in
+    S+WAVELETS. Any choice of wavelet, boundary condition, etc provided
+    by these routines can be used.}
 
   \item{x.dwt}{Wavelet transform input for \code{ebayesthresh.wavelet.dwt}.}
 
   \item{x.wd}{Wavelet transform input for \code{ebayesthresh.wavelet.wd}.}
   
   \item{vscale}{Controls the scale used at different levels of the
-	transform. If \code{vscale} is a scalar quantity, then it will
-	be assumed that the wavelet coefficients at every level have
-	this standard deviation. If \code{vscale = "independent"}, the
-	standard deviation will be estimated from the highest level of
-	the wavelet transform and will then be used for all levels
-	processed. If \code{vscale="level"}, then the standard
-	deviation will be estimated separately for each level processed,
-	allowing standard deviation that is level-dependent.}
+    transform. If \code{vscale} is a scalar quantity, then it will be
+    assumed that the wavelet coefficients at every level have this
+    standard deviation. If \code{vscale = "independent"}, the standard
+    deviation will be estimated from the highest level of the wavelet
+    transform and will then be used for all levels processed. If
+    \code{vscale="level"}, then the standard deviation will be estimated
+    separately for each level processed, allowing standard deviation
+    that is level-dependent.}
       
   \item{smooth.levels}{The number of levels to be processed, if less
-	than the number of levels of detail calculated by the wavelet
-	transform.}
+    than the number of levels of detail calculated by the wavelet
+    transform.}
       
   \item{prior}{Specification of prior to be used for the coefficients at
-	each level, conditional on their mean being nonzero; can be
-	\code{cauchy} or \code{laplace}.}
+    each level, conditional on their mean being nonzero; can be
+    \code{cauchy} or \code{laplace}.}
       
-  \item{a}{Scale factor if Laplace prior is used.  Ignored if Cauchy
-	prior is used. If, on entry, \code{a=NA} and
-	\code{prior="laplace"}, then the scale parameter will also be
-	estimated at each level by marginal maximum likelihood.  If
-	\code{a} is not specified then the default value 0.5 will be
-	used.}
+  \item{a}{Inverse scale ({\emph i.e.}, rate) parameter if Laplace prior
+    is used. Ignored if Cauchy prior is used. If, on entry, \code{a=NA}
+    and \code{prior="laplace"}, then the scale parameter will also be
+    estimated at each level by marginal maximum likelihood.  If \code{a}
+    is not specified then the default value 0.5 will be used.}
       
   \item{bayesfac}{If \code{bayesfac=TRUE}, then whenever a threshold is
-	explicitly calculated, the Bayes factor threshold will be used.
-	}
+    explicitly calculated, the Bayes factor threshold will be used.}
       
   \item{threshrule}{Specifies the thresholding rule to be applied to the
-	coefficients. Possible values are \code{median} (use the
-	posterior median); \code{mean} (use the posterior mean);
-	\code{hard} (carry out hard thresholding); \code{soft} (carry
-	out soft thresholding).}
+    coefficients. Possible values are \code{median} (use the posterior
+    median); \code{mean} (use the posterior mean); \code{hard} (carry
+    out hard thresholding); \code{soft} (carry out soft thresholding).}
 }
 \details{
-  
 The routine \code{ebayesthresh.wavelet} can process a wavelet transform
 obtained using the routine \code{wd} in the WaveThresh \R package, the
 routines \code{dwt} or \code{modwt} in the waveslim \R package, or one

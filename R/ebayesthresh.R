@@ -6,8 +6,8 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 #  estimator of the mixing weight w, and apply an appropriate
 #  thresholding rule using this weight.
 #
-#  If the prior is laplace and a=NA, then the scale factor is also
-#  found by MML.
+#  If the prior is laplace and a=NA, then the inverse scale parameter
+#  is also found by MML.
 #
 #  Standard deviation sdev can be a vector (heterogeneous variance) or
 #  a single value (homogeneous variance). If sdev=NA, then it is

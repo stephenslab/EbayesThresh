@@ -16,11 +16,11 @@ stabadjustment)
  \item{prior}{Specification of prior to be used conditional on the
 	mean being nonzero; can be \code{"cauchy"} or \code{"laplace"}.}
  
- \item{a}{Scale factor if Laplace prior is used. Ignored if Cauchy prior
-	is used. If, on entry, \code{a = NA} and \code{prior = "laplace"},
-	then the scale parameter will also be estimated by marginal
-	maximum likelihood. If \code{a} is not specified then the
-	default value 0.5 will be used.}
+ \item{a}{Inverse scale (\emph{i.e.}, rate) parameter if Laplace prior
+   is used. Ignored if Cauchy prior is used. If, on entry, \code{a = NA}
+   and \code{prior = "laplace"}, then the inverse scale parameter will
+   also be estimated by marginal maximum likelihood. If \code{a} is not
+   specified then the default value 0.5 will be used.}
  
  \item{bayesfac}{If \code{bayesfac = TRUE}, then whenever a threshold
 	is explicitly calculated, the Bayes factor threshold will be
@@ -62,7 +62,7 @@ mean \eqn{\theta_i} and variance \eqn{\sigma_i^2} (\eqn{\sigma_i} is the
 same in the homogeneous case). The prior distribution of each
 \eqn{\theta_i} is a mixture with probability \eqn{1-w} of zero and
 probability \eqn{w} of a given symmetric heavy-tailed distribution. The
-mixing weight, and possibly a scale factor in the symmetric
+mixing weight, and optionally an inverse scale parameter in the symmetric
 distribution, are estimated by marginal maximum likelihood. The
 resulting values are used as the hyperparameters in the prior.
 
@@ -96,8 +96,8 @@ If \code{verbose = TRUE}, a list with the following elements:
   \item{w}{the mixing weight as estimated by marginal maximum
     likelihood}
 
-  \item{a}{(only present if Laplace prior used) the scale factor as
-    supplied or estimated}
+  \item{a}{(only present if Laplace prior used) the inverse scale (or
+    rate) parameter as supplied or estimated}
 
   \item{bayesfac}{the value of the parameter \code{bayesfac},
     determining whether Bayes factor or posterior median thresholds are

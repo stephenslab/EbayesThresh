@@ -28,8 +28,8 @@ cauchy.medzero(x, z, w)
   \item{prior}{Family of the nonzero part of the prior; can be
     \code{"cauchy"} or \code{"laplace"}.}
   
-  \item{a}{The scale parameter of the nonzero part of the prior if the
-    Laplace prior is used.}
+  \item{a}{The inverse scale (\emph{i.e.}, rate) parameter of the
+    nonzero part of the prior if the Laplace prior is used.}
 
   \item{z}{The data vector (or scalar) provided as input to
     \code{cauchy.medzero}.}

@@ -25,8 +25,8 @@ postmean.cauchy(x, w)
   \item{prior}{Family of the nonzero part of the prior; can be
     \code{"cauchy"} or \code{"laplace"}.}
   
-  \item{a}{The scale parameter of the nonzero part of the prior if the
-    Laplace prior is used.}
+  \item{a}{The inverse scale (\emph{i.e.}, rate) parameter of the
+    nonzero part of the prior if the Laplace prior is used.}
 }
 \value{
 If \eqn{x} is a scalar, the posterior mean \eqn{E(\theta|x)}{E(theta|x)}

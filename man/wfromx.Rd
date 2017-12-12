@@ -24,8 +24,8 @@ wfromx(x, s = 1, prior = "laplace", a = 0.5, universalthresh = TRUE)
   \item{prior}{Specification of prior to be used; can be
     \code{"cauchy"} or \code{"laplace"}.}
   
-  \item{a}{Scale factor if Laplace prior is used. Ignored if Cauchy
-    prior is used.}
+  \item{a}{Inverse scale (\emph{i.e.}, rate) parameter if Laplace prior
+    is used. Ignored if Cauchy prior is used.}
   
   \item{universalthresh}{If \code{universalthresh = TRUE}, the
 	thresholds will be upper bounded by universal threshold;
@@ -45,10 +45,10 @@ The search is by binary search for a solution to the equation
 \eqn{S(w)=0}, where \eqn{S} is the derivative of the log likelihood.
 The binary search is on a logarithmic scale in \eqn{w}.
 
-If the Laplace prior is used, the scale parameter is fixed at the value
-given for \code{a}, and defaults to 0.5 if no value is provided.  To
-estimate \code{a} as well as \code{w} by marginal maximum likelihood,
-use the routine \code{\link{wandafromx}}.
+If the Laplace prior is used, the inverse scale parameter is fixed at
+the value given for \code{a}, and defaults to 0.5 if no value is
+provided. To estimate \code{a} as well as \code{w} by marginal maximum
+likelihood, use the routine \code{\link{wandafromx}}.
 }
 \value{The numerical value of the estimated weight.}
 \references{See \code{\link{ebayesthresh}} and

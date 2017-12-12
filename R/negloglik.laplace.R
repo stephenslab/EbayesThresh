@@ -6,7 +6,7 @@ negloglik.laplace <- function(xpar, xx, ss, tlo, thi) {
 #  xx   :data
 #  xpar :vector of two parameters:
 #      xpar[1] : a value between [0, 1] which will be adjusted to range of w 
-#      xpar[2] : scale factor a
+#      xpar[2] : inverse scale (rate) parameter ("a")
 #  ss   :vector of standard deviations
 #  tlo  :lower bound of thresholds
 #  thi  :upper bound of thresholds

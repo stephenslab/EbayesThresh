@@ -26,11 +26,11 @@ zetafromx(xd, cs, pilo = NA, prior = "laplace", a = 0.5)
   \item{prior}{Specification of prior to be used conditional on the mean
 	being nonzero; can be \code{cauchy} or \code{laplace}.}
       
-  \item{a}{Scale factor if Laplace prior is used. Ignored if Cauchy
-    prior is used. If, on entry, \code{a=NA} and \code{prior="laplace"},
-    then the scale parameter will also be estimated by marginal maximum
-    likelihood. If \code{a} is not specified then the default value 0.5
-    will be used.}
+  \item{a}{Inverse scale (\emph{i.e.}, rate) parameter if Laplace prior
+    is used. Ignored if Cauchy prior is used. If, on entry, \code{a=NA}
+    and \code{prior="laplace"}, then the inverse scale parameter will
+    also be estimated by marginal maximum likelihood. If \code{a} is not
+    specified then the default value 0.5 will be used.}
 }
 \details{
   

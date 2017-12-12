@@ -5,7 +5,8 @@ tfromw <- function(w, s = 1, prior = "laplace", bayesfac = FALSE, a = 0.5) {
 #   specified prior.
 #  If bayesfac=TRUE the Bayes factor thresholds are found, otherwise
 #   the posterior median thresholds are found.
-#  If the Laplace prior is used, a gives the value of the scale factor
+#  If the Laplace prior is used, a gives the value of the inverse scale
+#   (i.e., rate) parameter
 #
 	pr <- substring(prior, 1, 1)
 	if(bayesfac) {
