@@ -20,9 +20,19 @@ wandafromx <- function(x, s = 1, universalthresh = TRUE) {
   }
   
 	tlo <- rep(0, length(s))
-	lo  <-  c(0,0.04)
-	hi  <-  c(1,3)
-	startpar  <-  c(0.5,0.5)
+	
+	# get some reasonable limits on sigma (standard deviation of laplace)
+	sigmamin = min(s)/10
+	if (all(x^2 <= s^2)) {
+	  sigmamax = 8 * sigmamin
+	}
+	else {
+	  sigmamax = 2 * sqrt(max(x^2 - s^2))
+	}
+	
+	lo  <-  c(0,1/sigmamax^2)
+	hi  <-  c(1,1/sigmamin^2)
+	startpar  <-  c(0.5,2/(sigmamax^2+sigmamin^2))
 	if (exists("optim")) {
   	  uu <- optim(startpar, negloglik.laplace, method="L-BFGS-B",
                       lower = lo, upper = hi, xx = x, ss = s, thi = thi,
