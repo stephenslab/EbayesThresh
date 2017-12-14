@@ -6,9 +6,6 @@ postmean2.laplace <- function(x, s = 1, w = 0.5, a = 0.5) {
   #   given x, s (sd), w and a.
   #
   
-  # Only allow a < 20 for input value.
-  a <- min(a, 20)
-  
   # First find the probability of being non-zero
   wpost <- wpost.laplace(w, x, s, a)
   
