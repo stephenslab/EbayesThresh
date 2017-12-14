@@ -1,6 +1,6 @@
 ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
                           sdev = NA, verbose = FALSE, threshrule = "median",
-                          universalthresh = TRUE,  stabadjustment, opt_method=c("mle","mm")) {
+                          universalthresh = TRUE,  stabadjustment) {
 #  
 #  Given a vector of data x, find the marginal maximum likelihood
 #  estimator of the mixing weight w, and apply an appropriate
@@ -34,8 +34,6 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 #  deviations will be normalized to 1 automatically. Output (posterior mean/median)
 #  is then scaled at end so results should remain the same.  
 #
-#  If opt_method=mle then uses maximum likelihood approach; opt_method=mm uses method of moments (which is faster)
-#  Note opt_method=mm is incompatible with universalthresh=TRUE
 #  
 #  If verbose=TRUE then the routine returns a list with several
 #  arguments, including muhat which is the result of the
@@ -44,13 +42,7 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
     
   # Find the standard deviation if necessary and estimate the parameters
   pr <- substring(prior, 1, 1)
-  opt_method = match.arg(opt_method)
-  
-  if(opt_method=="mm"){
-    if(universalthresh){stop("Method of moments not implemented with universal threshold")}
-    if(!is.na(a)){stop("Method of moments not implemented with a specified")}
-    if(pr!="l"){stop("Method of moments not implemented for Cauchy")}
-  }
+
   
   if(length(sdev) == 1) {
       if(!missing(stabadjustment))
@@ -80,11 +72,9 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 	if ((pr == "l") & is.na(a)) {
 	  if(universalthresh){
 	    pp <- wandafromx(x, s, universalthresh)
-	  } else if(opt_method=="mle") {
+	  } else {
 	    pp <- wandafromx.mle(x, s) 
-	  } else if(opt_method=="mm"){
-	    pp <- wandafromx.mm(x, s) 
-	  }
+	  } 
     w  <- pp$w
     a  <- pp$a
 	}
@@ -132,7 +122,7 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 	retlist <- list(muhat = muhat, x = x, threshold.sdevscale = tt, 
                         threshold.origscale = tcor, prior = prior, w = w,
                         a = a, bayesfac = bayesfac, sdev = sdev,
-                        threshrule = threshrule, loglik = loglik, postmean2 = postmean2, opt_method=opt_method)
+                        threshrule = threshrule, loglik = loglik, postmean2 = postmean2)
 	if(pr == "c")
 		retlist <- retlist[-7]
 	if(threshrule == "none")
