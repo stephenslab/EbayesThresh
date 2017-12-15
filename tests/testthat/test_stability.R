@@ -26,3 +26,13 @@ test_that("posterior median stable for large a",{
   expect_equal(postmed.laplace(3,3,0.9,100),0)
   expect_lte(postmed.laplace(3,3,1,biga),postmed.laplace(3,3,1,10))
 })
+
+test_that("posterior median and mean scale appropriately",{
+  x = 3 
+  s=1
+  w=0.5
+  a=1
+  expect_equal(postmed.laplace(x,s,w,a),postmed.laplace(x*100,s*100,w,a/100)/100,tol=1e-6)
+  expect_equal(postmean.laplace(x,s,w,a),postmean.laplace(x*100,s*100,w,a/100)/100,tol=1e-6)
+  expect_equal(postmean2.laplace(x,s,w,a),postmean2.laplace(x*100,s*100,w,a/100)/100^2,tol=1e-6)
+})
