@@ -2,7 +2,7 @@ Package: EbayesThresh
 Encoding: UTF-8
 Type: Package
 Title: Empirical Bayes Thresholding and Related Methods
-Version: 1.5-3
+Version: 1.5-4
 Date: 2017-12-13
 Authors@R: c(person("Bernard W.","Silverman",role="aut"),
              person("Ludger","Evers",role="aut",
