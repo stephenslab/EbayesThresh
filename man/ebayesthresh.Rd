@@ -107,9 +107,6 @@ If \code{verbose = TRUE}, a list with the following elements:
     estimated}
   
   \item{threshrule}{the thresholding rule used, as specified above}
-  
-  \item{loglik}{The log-likelihood of the fitted model (implemented only for laplace prior; otherwise NA)}
-  \item{postmean2}{The posterior second moments of mu (implemented only for laplace prior; otherwise NA)}
 }
 \references{
   

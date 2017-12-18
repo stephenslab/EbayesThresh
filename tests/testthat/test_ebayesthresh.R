@@ -73,10 +73,11 @@ test_that("wfromx recovers result from v1.3.2 package when s=1",{
 })
 
 # ----------------------------------------------------------------------
-test_that("wandafromx and wandafromx.mle agree",{
+test_that("wandafromx recovers result from v1.3.2 package when s=1",{
   set.seed(123)
-  x <- rnorm(100) + rexp(100,rate = 2)
-  expect_equal(wandafromx(x),wandafromx.mle(x,1),tolerance = 1e-3)
+  x <- rnorm(100)
+  y <- list(w = 0.371583145802847,a = 3)
+  expect_equal(wandafromx(x),y,tolerance = 1e-6)
 })
 
 # ----------------------------------------------------------------------

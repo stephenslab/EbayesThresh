@@ -1,6 +1,6 @@
 ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
                           sdev = NA, verbose = FALSE, threshrule = "median",
-                          universalthresh = TRUE,  stabadjustment) {
+                          universalthresh = TRUE, stabadjustment) {
 #  
 #  Given a vector of data x, find the marginal maximum likelihood
 #  estimator of the mixing weight w, and apply an appropriate
@@ -26,15 +26,12 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 #  universal threshold adjusted by standard deviation; otherwise,
 #  weight w will be searched in [0, 1].
 #    
-#  If stabadjustment=TRUE, a stability adjustment is made.
-#  The observations and standard deviations
-#  will be first divided by the mean of the standard deviations
-#  to reduce inefficiency due to large value of standard
+#  If stabadjustment=TRUE, the observations and standard deviations
+#  will be first divided by the mean of all given standard deviations
+#  in case of inefficiency due to large value of standard
 #  deviation. In the case of homogeneous variance, the standard
-#  deviations will be normalized to 1 automatically. Output (posterior mean/median)
-#  is then scaled at end so results should remain the same.  
+#  deviations will be normalized to 1 automatically.
 #
-#  
 #  If verbose=TRUE then the routine returns a list with several
 #  arguments, including muhat which is the result of the
 #  thresholding. If verbose=FALSE then only muhat is returned.
@@ -43,7 +40,6 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
   # Find the standard deviation if necessary and estimate the parameters
   pr <- substring(prior, 1, 1)
 
-  
   if(length(sdev) == 1) {
       if(!missing(stabadjustment))
         stop(paste("Argument stabadjustment is not applicable when",
@@ -70,13 +66,9 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
   } else { s <- sdev }
   
 	if ((pr == "l") & is.na(a)) {
-	  if(universalthresh){
-	    pp <- wandafromx(x, s, universalthresh)
-	  } else {
-	    pp <- wandafromx.mle(x, s) 
-	  } 
-    w  <- pp$w
-    a  <- pp$a
+	  pp <- wandafromx(x, s, universalthresh)
+          w  <- pp$w
+          a  <- pp$a
 	}
 	else
           w <- wfromx(x, s, prior = prior, a = a, universalthresh)
@@ -88,19 +80,6 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
             tcor <- tt
           }
 	}
-	
-	if ((pr == "l")){
-	  loglik = loglik.laplace(x,s,a,w) #sum(log(1+w*beta.laplace(x,s,a))) + sum(dnorm(x,0,s,log=TRUE)) # value of log-likelihood achieved
-	} else {
-	  loglik = NA #log likelihood only implemented for point-laplace prior
-	}
-	
-	if ((pr == "l")){
-	  postmean2 = postmean2.laplace(x,s,w,a)
-	} else {
-	  postmean2 = NA #log likelihood only implemented for point-laplace prior
-	}
-	
 	if(threshrule == "median")
 		muhat <- postmed(x, s, w, prior = prior, a = a)
 	if(threshrule == "mean")
@@ -115,18 +94,16 @@ ebayesthresh <- function (x, prior = "laplace", a = 0.5, bayesfac = FALSE,
 	# Now return desired output
 	if(stabadjustment_condition) {
 	  muhat <- muhat * m_sdev
-	  postmean2 <- postmean2 * m_sdev^2
 	}
 	if(!verbose)
             return(muhat)
 	retlist <- list(muhat = muhat, x = x, threshold.sdevscale = tt, 
                         threshold.origscale = tcor, prior = prior, w = w,
                         a = a, bayesfac = bayesfac, sdev = sdev,
-                        threshrule = threshrule, loglik = loglik, postmean2 = postmean2)
+                        threshrule = threshrule)
 	if(pr == "c")
 		retlist <- retlist[-7]
 	if(threshrule == "none")
 		retlist <- retlist[-1]
-	
 	return(retlist)
 }

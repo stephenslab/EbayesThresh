@@ -53,7 +53,7 @@ ebayesthresh.wavelet.splus(x.dwt, vscale = "independent", smooth.levels = Inf,
     each level, conditional on their mean being nonzero; can be
     \code{cauchy} or \code{laplace}.}
       
-  \item{a}{Inverse scale (\emph{i.e.}, rate) parameter if Laplace prior
+  \item{a}{Inverse scale ({\emph i.e.}, rate) parameter if Laplace prior
     is used. Ignored if Cauchy prior is used. If, on entry, \code{a=NA}
     and \code{prior="laplace"}, then the scale parameter will also be
     estimated at each level by marginal maximum likelihood.  If \code{a}

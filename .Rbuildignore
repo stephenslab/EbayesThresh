@@ -4,5 +4,3 @@
 ^\.travis\.yml$
 ^inst/EB_Update_CompVal\.R$
 ^vignettes/ebayesthresh\.html$
-^.*\.Rproj$
-^\.Rproj\.user$
