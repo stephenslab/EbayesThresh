@@ -11,7 +11,7 @@ B. W. Silverman.
 ## License
 
 The *EbayesThresh* source code repository is free software: you can
-redistribute it under the terms of the
+redistribute it under the terms of the 
 [GNU General Public License](http://www.gnu.org/licenses/gpl.html). All
 the files in this project are part of *EbayesThresh*. This project is
 distributed in the hope that it will be useful, but **without any
